@@ -1,4 +1,4 @@
-# Node-red IOTA 0-value tx publish module
+# Node-Red IOTA library module ( in progress )
 
 ## Requirements
 
@@ -13,11 +13,11 @@ in your ~/.node-red installation directory type:
 npm install node-red-dashboard
 ```
 
-# IOTA-tx0 module installation
+# IOTA-lib module installation
 
 Run the following command in your NODE-RED install
 ```
-npm install node-red-contrib-iota-tx0
+npm install node-red-contrib-iota-lib // not yet published to npm
 ```
 
 # Usage
