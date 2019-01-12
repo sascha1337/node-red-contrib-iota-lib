@@ -1,25 +1,25 @@
 {
-  "name": "node-red-contrib-iota-tx0",
-  "version": "1.0.1",
+  "name": "node-red-contrib-iota-transactions",
+  "version": "0.0.1",
   "description": "",
-  "main": "tx0Publish.js",
+  "main": "iota-transactions.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "node-red": {
     "nodes": {
-      "tx0Publish": "tx0Publish.js"
+      "iota-api": "iota-transactions.js"
     }
   },
-  "author": "yshurik <yshurik@gmail.com>",
+  "author": "vruiz@wittelecom.com>",
   "license": "MIT",
   "dependencies": {
-    "iota.lib.js": "^0.4.7",
+    "iota.lib.js": "^0.5.1",
     "transliteration": "^1.6.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yshurik/node-red-contrib-iota-tx0.git"
+    "url": "https://github.com/Vruizvil/node-red-contrib-iota-lib.git"
   },
   "keywords": [
     "node-red",

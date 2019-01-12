@@ -7,9 +7,9 @@ module.exports = function(RED) {
         var node = this;
         node._sec = 2;
 	node._firstroot = '';
-        
-	console.log("Publish 0-value tx on iota node: " + config.iotaNode);
-        
+
+	console.log("Iota Api getTransactions: " + config.iotaNode);
+
 	const iota = new IOTA({ provider: config.iotaNode })
         node.readyIota = true;
 
@@ -18,7 +18,7 @@ module.exports = function(RED) {
               let txt = JSON.stringify(msg.payload);
 	      let ascii = TRAN.transliterate(txt)
               let trytes = iota.utils.toTrytes(ascii)
-              
+
               console.log("message payload: "+msg.payload)
 	      console.log("transliterated: "+ascii)
               console.log("trytes: "+trytes)
@@ -47,5 +47,5 @@ module.exports = function(RED) {
             }
         });
     }
-    RED.nodes.registerType("tx0Publish",tx0Publish);
+    RED.nodes.registerType("iota-transactions",iota-transactions);
 }
