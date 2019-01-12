@@ -1,9 +1,9 @@
 <script type="text/javascript">
-    RED.nodes.registerType('tx0Publish',{
+    RED.nodes.registerType('iota-transactions',{
         category: 'function',
         color: '#f6bbcf',
         defaults: {
-            iotaNode: {value: "http://node04.nodeblie.de:14265/"},
+            iotaNode: {value: "https://pool.trytes.eu"},
 	    iotaSeed: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"},
 	    iotaAddr: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"}
         },
@@ -11,12 +11,12 @@
         outputs:1,
         icon: "iota.png",
         label: function() {
-            return this.name||"tx0Publish";
+            return this.name||"iota-transactions";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="tx0Publish">
+<script type="text/x-red" data-template-name="iota-transactions">
     <div class="form-row">
     <label for="node-function-iotaNode"><i class="icon-tag"></i> IOTA node</label>
     <input type="text" id="node-input-iotaNode">
@@ -27,7 +27,6 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="tx0Publish">
-    <p>tx0 publish node</p>
+<script type="text/x-red" data-help-name="iota-transactions">
+    <p>iota-transactions node</p>
 </script>
-

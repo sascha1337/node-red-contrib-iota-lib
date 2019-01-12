@@ -2,7 +2,7 @@ const IOTA = require('iota.lib.js');
 const TRAN = require('transliteration');
 
 module.exports = function(RED) {
-    function tx0Publish(config) {
+    function iotagettransactions(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         node._sec = 2;
