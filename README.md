@@ -23,23 +23,3 @@ npm install node-red-contrib-iota-lib // not yet published to npm
 # Usage
 
 There is one function node available
-
-**tx0 publish** (=upload data to tangle)
-
-Drag tx0 function node into a flow and wire it accordingly
-
-
-## tx0 publish
-
-Deploy some node input data source.
-
-wire its output to
--> tx0Publish node
-
-and wire this node's output to an
--> (optional) output for logging
-
-The tx0 publish gets input data from sensorTag, uploads this data and upon
-tx confirmation is ready to take new data from the input.
-
-
