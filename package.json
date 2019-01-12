@@ -8,7 +8,7 @@
   },
   "node-red": {
     "nodes": {
-      "iota-transactions": "iota-transactions.js"
+      "iotatransactions": "iota-transactions.js"
     }
   },
   "author": "vruiz@wittelecom.com>",
