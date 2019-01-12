@@ -47,5 +47,5 @@ module.exports = function(RED) {
             }
         });
     }
-    RED.nodes.registerType("iota-transactions",iota-transactions);
+    RED.nodes.registerType("iota-transactions",iotagettransactions);
 }
