@@ -31,7 +31,7 @@ module.exports = function(RED) {
 		              {
     			             value: 0,
     			             address: iota_addr,
-    			             message: trytes.
+    			             message: trytes,
                        tag: iota_tag
   		            }
 	            ]
