@@ -9,7 +9,8 @@
   "node-red": {
     "nodes": {
       "iotatransactions": "iota-transactions.js",
-      "iotasendtransfer": "iota-sendtransfer.js"
+      "iotasendtransfer": "iota-sendtransfer.js",
+      "iotagetaccount": "iota-getaccount.js",
     }
   },
   "author": "vruiz@wittelecom.com>",
