@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('iotatransactions',{
+    RED.nodes.registerType('iotasendtransfer',{
         category: 'IOTA-api',
         color: '#f6bbcf',
         defaults: {
@@ -12,12 +12,12 @@
         outputs:1,
         icon: "iota.png",
         label: function() {
-            return this.name||"iotatransactions";
+            return this.name||"iotasendtransfer";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="iotatransactions">
+<script type="text/x-red" data-template-name="iotasendtransfer">
     <div class="form-row">
       <label for="node-function-iotaNode"><i class="icon-tag"></i> IOTA node</label>
       <input type="text" id="node-input-iotaNode" placeholder="node">
@@ -36,6 +36,6 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="iotatransactions">
-    <p>iotatransactions node</p>
+<script type="text/x-red" data-help-name="iotasendtransfer">
+    <p>iotasendtransfer node</p>
 </script>
