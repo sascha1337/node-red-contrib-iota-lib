@@ -4,13 +4,11 @@
         color: '#f6bbcf',
         defaults: {
             iotaNode: {value: "https://pool.trytes.eu"},
-	          iotaSeed: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"},
-	          iotaAddr: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"},
-            iotaTag: {value: "send transacton from node-red"}
+	          iotaSeed: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"}
         },
         inputs:1,
         outputs:1,
-        icon: "iota.png",
+        icon: "./icons/iota.png",
         label: function() {
             return this.name||"iotagetaccount";
         }
@@ -25,14 +23,6 @@
     <div class="form-row">
       <label for="node-function-iotaSeed"><i class="icon-tag"></i> Use seed</label>
       <input type="text" id="node-input-iotaSeed" placeholder="seed">
-    </div>
-    <div class="form-row">
-      <label for="node-function-iotaAddr"><i class="icon-tag"></i> To addr</label>
-      <input type="text" id="node-input-iotaAddr" placeholder="addr">
-    </div>
-    <div class="form-row">
-      <label for="node-function-iotaTag"><i class="icon-tag"></i> Tag</label>
-      <input type="text" id="node-input-iotaTag" placeholder="tag">
     </div>
 </script>
 
