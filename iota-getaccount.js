@@ -30,10 +30,10 @@ module.exports = function(RED) {
                 console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
-                     node.send(error[0]);
+                     node.send(error);
   		               } else {
     		                 console.log(success);
-                         node.send(success[0]);
+                         node.send(success);
   		                   }
                 self.readyIota = true;
 	             });
