@@ -30,7 +30,7 @@ module.exports = function(RED) {
               const iota_value = config.iotaValue; //Value to transfer
               const transfers = [
 		              {
-    			             value: 0,
+    			             value: iota_value,
     			             address: iota_addr,
     			             message: trytes,
                        tag: iota_tag
