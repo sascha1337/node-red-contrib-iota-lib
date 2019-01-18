@@ -2,7 +2,7 @@ const IOTA = require('iota.lib.js');
 const TRAN = require('transliteration');
 
 module.exports = function(RED) {
-    function iotagetaccount(config) {
+    function iotagetinputs(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         node._sec = 2;
@@ -40,5 +40,5 @@ module.exports = function(RED) {
             }
         });
     }
-    RED.nodes.registerType("iotagetaccount",iotagetaccount);
+    RED.nodes.registerType("iotagetinputs",iotagetinputs);
 }
