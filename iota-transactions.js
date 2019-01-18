@@ -28,7 +28,7 @@ module.exports = function(RED) {
 
               this.readyIota = false;
               var self = this;
-              iota.api.findTransactionObjects({'hashes' : [iota_hash]}, (error, success) => {
+              iota.api.getTransactionObjects(iota_hash, (error, success) => {
                 console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
