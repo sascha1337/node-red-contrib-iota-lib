@@ -38,7 +38,7 @@ module.exports = function(RED) {
     			             message: trytes,
                        tag: iota_tag
   		             }
-	            ]
+	            ];
               this.readyIota = false;
               var self = this;
               iota.api.sendTransfer(iota_seed, 14, 14, transfers, (error, success) => {
