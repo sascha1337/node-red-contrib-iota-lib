@@ -18,7 +18,7 @@ module.exports = function(RED) {
               let txt = JSON.stringify(msg.payload);
 	            let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
-              
+
               let txttag = JSON.stringify(config.iotaTag);
               let asciitag = TRAN.transliterate(txttag);
               let trytestag = iota.utils.toTrytes(asciitag);
@@ -35,8 +35,7 @@ module.exports = function(RED) {
 		  {
     			value: 0,
     			address: iota_addr,
-    			message: trytes,
-          tag: trytestag
+    			message: trytes
   		  }
 	      ]
               this.readyIota = false;
