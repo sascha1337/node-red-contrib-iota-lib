@@ -15,6 +15,7 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             if (this.readyIota) {
+              this.status({fill:"green",shape:"dot",text:"connected"});
               let txt = JSON.stringify(msg.payload);
 	            let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
