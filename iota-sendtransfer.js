@@ -14,8 +14,8 @@ module.exports = function(RED) {
         node.readyIota = true;
 
         node.on('input', function(msg) {
+            this.status({fill:"green",shape:"dot",text:"connecting"});
             if (this.readyIota) {
-              this.status({fill:"green",shape:"dot",text:"connected"});
               let txt = JSON.stringify(msg.payload);
 	            let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
@@ -55,7 +55,7 @@ module.exports = function(RED) {
                   msg.payload=success;
                   self.send(msg);
   		}
-                this.status({fill:"green",shape:"dot",text:"connected"});
+                this.status({});
                 self.readyIota = true;
 	      });
             }
