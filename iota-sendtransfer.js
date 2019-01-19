@@ -26,11 +26,14 @@ module.exports = function(RED) {
               console.log("Uploading dataset via sendTransfer - please wait")
 	      const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	      const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+        const iota_tag = config.iotaTag;
+        const iota_value = config.iotaValue;
 	      const transfers = [
 		  {
     			value: 0,
     			address: iota_addr,
-    			message: trytes
+    			message: trytes,
+          tag: iota_tag
   		  }
 	      ]
               this.readyIota = false;
