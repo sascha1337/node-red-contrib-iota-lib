@@ -21,10 +21,10 @@ module.exports = function(RED) {
               console.log("message payload: "+msg.payload)
 	            console.log("transliterated: "+ascii)
 
-              console.log("Searching dataset via findTransactionObjects - please wait")
-	            const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+              console.log("Searching dataset via getTransactionsObjects - please wait")
+	            //const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	            const iota_hash = config.iotaHash; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-              const iota_tag = config.iotaTag; //Tag transaction
+              //const iota_tag = config.iotaTag; //Tag transaction
 
               this.readyIota = false;
               var self = this;

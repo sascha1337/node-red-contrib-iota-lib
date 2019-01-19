@@ -8,7 +8,7 @@ module.exports = function(RED) {
         node._sec = 2;
 	      node._firstroot = '';
 
-	      console.log("Iota Api getaccount: " + config.iotaNode);
+	      console.log("Iota Api getinputs: " + config.iotaNode);
 
 	      const iota = new IOTA({ provider: config.iotaNode });
         node.readyIota = true;
@@ -21,7 +21,7 @@ module.exports = function(RED) {
               console.log("message payload: "+msg.payload)
 	            console.log("transliterated: "+ascii)
 
-              console.log("Get account dataset via getAccountData - please wait")
+              console.log("Get account dataset via getInputs - please wait")
 	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 
               this.readyIota = false;
