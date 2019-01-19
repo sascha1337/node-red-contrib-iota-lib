@@ -30,10 +30,12 @@ module.exports = function(RED) {
               console.log("Uploading dataset via sendTransfer - please wait")
 	      const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	      const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-        const iota_value = config.iotaValue;
+        //const iota_value = config.iotaValue;
+        let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
+        console.log("sending founds Miotas:"+iota_value);
 	      const transfers = [
 		  {
-    			value: 0,
+    			value: iota_value,
     			address: iota_addr,
     			message: trytes
   		  }
