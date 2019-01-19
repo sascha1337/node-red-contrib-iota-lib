@@ -32,7 +32,7 @@ module.exports = function(RED) {
               console.log("sending founds Miotas:"+iota_value)
               const transfers = [
 		              {
-    			             value: iota_value,
+    			             value: 0,
     			             address: iota_addr,
     			             message: trytes,
                        tag: iota_tag
