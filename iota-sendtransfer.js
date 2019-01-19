@@ -23,11 +23,12 @@ module.exports = function(RED) {
 	            console.log("transliterated: "+ascii)
               console.log("trytes: "+trytes)
 
-              console.log("Uploading dataset via sendTransfer - please wait")
+              console.log("Uploading dataset via sendTransfer - please wait...")
 	            const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               const iota_tag = config.iotaTag; //Tag transaction
               const iota_value = config.iotaValue; //Value to transfer
+              console.log("sending founds Ki:"+iota_value)
               const transfers = [
 		              {
     			             value: iota_value,
