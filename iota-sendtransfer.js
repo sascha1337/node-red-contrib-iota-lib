@@ -16,8 +16,12 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
             if (this.readyIota) {
               let txt = JSON.stringify(msg.payload);
-	      let ascii = TRAN.transliterate(txt)
-              let trytes = iota.utils.toTrytes(ascii)
+	            let ascii = TRAN.transliterate(txt);
+              let trytes = iota.utils.toTrytes(ascii);
+              
+              let txttag = JSON.stringify(config.iotaTag);
+              let asciitag = TRAN.transliterate(txttag);
+              let trytestag = iota.utils.toTrytes(asciitag);
 
               console.log("message payload: "+msg.payload)
 	      console.log("transliterated: "+ascii)
@@ -26,14 +30,13 @@ module.exports = function(RED) {
               console.log("Uploading dataset via sendTransfer - please wait")
 	      const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	      const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-        const iota_tag = iota.utils.toTrytes(config.iotaTag);
         const iota_value = config.iotaValue;
 	      const transfers = [
 		  {
     			value: 0,
     			address: iota_addr,
     			message: trytes,
-          tag: iota_tag
+          tag: trytestag
   		  }
 	      ]
               this.readyIota = false;
