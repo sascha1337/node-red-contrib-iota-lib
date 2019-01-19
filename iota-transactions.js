@@ -36,7 +36,7 @@ module.exports = function(RED) {
                      self.send(msg);
   		               } else {
     		                 console.log(success);
-                         msg.payload=error ;
+                         msg.payload=success;
                          self.send(msg);
   		                   }
                 self.readyIota = true;
