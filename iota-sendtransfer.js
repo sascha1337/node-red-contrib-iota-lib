@@ -27,7 +27,8 @@ module.exports = function(RED) {
 	            const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               const iota_tag = config.iotaTag; //Tag transaction
-              const iota_value = config.iotaValue; //Value to transfer
+              //const iota_value = config.iotaValue; //Value to transfer
+              const iota_value = iota.utils.convertUnits(config.iotaValue, "Ki", "i");
               console.log("sending founds Ki:"+iota_value)
               const transfers = [
 		              {
