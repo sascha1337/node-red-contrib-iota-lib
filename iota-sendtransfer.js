@@ -28,14 +28,14 @@ module.exports = function(RED) {
 	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               const iota_tag = config.iotaTag; //Tag transaction
               //const iota_value = config.iotaValue; //Value to transfer
-              let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
-              console.log("sending founds Miotas:"+iota_value);
+              //let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
+              //console.log("sending founds Miotas:"+iota_value);
               const transfers = [
 		              {
-    			             'value': 0,
-    			             'address': iota_addr,
-    			             'message': trytes,
-                       'tag': iota_tag
+    			             value: 0,
+    			             address: iota_addr,
+    			             message: trytes,
+                       tag: iota_tag
   		            }
 	            ]
               this.readyIota = false;
