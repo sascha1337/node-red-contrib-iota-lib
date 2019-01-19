@@ -29,7 +29,7 @@ module.exports = function(RED) {
               const iota_tag = config.iotaTag; //Tag transaction
               //const iota_value = config.iotaValue; //Value to transfer
               let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
-              console.log("sending founds Miotas:"+iota_value)
+              console.log("sending founds Miotas:"+iota_value);
               const transfers = [
 		              {
     			             value: 0,
@@ -44,10 +44,12 @@ module.exports = function(RED) {
                 console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
-                     node.send(error[0]);
+                     msg.payload=error ;
+                     self.send(msg);
   		               } else {
     		                 console.log(success);
-                         node.send(success[0]);
+                         msg.payload=error;
+                         self.send(msg);
   		                   }
                 self.readyIota = true;
 	             });
