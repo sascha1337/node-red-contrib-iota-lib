@@ -22,4 +22,4 @@ npm install node-red-contrib-iota-lib // not yet published to npm
 
 # Usage
 
-There is one function node available
+There is one function node available.
