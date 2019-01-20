@@ -2,13 +2,13 @@ const IOTA = require('iota.lib.js');
 const TRAN = require('transliteration');
 
 module.exports = function(RED) {
-    function iotasendtransfer(config) {
+    function iotanewaddress(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         node._sec = 2;
 	      node._firstroot = '';
 
-	      console.log("Iota Api sendtransfer: " + config.iotaNode);
+	      console.log("Iota Api getNewAddress: " + config.iotaNode);
 
 	      const iota = new IOTA({ provider: config.iotaNode });
         node.readyIota = true;
@@ -23,25 +23,12 @@ module.exports = function(RED) {
 	            console.log("transliterated: "+ascii)
               console.log("trytes: "+trytes)
 
-              console.log("Uploading dataset via sendTransfer - please wait...")
-	            const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+              console.log("Get new address - please wait...")
 	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-              const iota_tag = config.iotaTag; //Tag transaction
-              //const iota_value = config.iotaValue; //Value to transfer
-              //let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
-              //console.log("sending founds Miotas:"+iota_value);
-
-              const transfers = [
-		              {
-    			             value: 0,
-    			             address: iota_addr,
-    			             message: trytes,
-                       tag: iota_tag
-  		             }
-	            ];
               this.readyIota = false;
               var self = this;
-              iota.api.sendTransfer(iota_seed, 14, 14, transfers, (error, success) => {
+              this.status({fill:"red",shape:"ring",text:"connecting"});
+              iota.api.getNewAddress(iota_seed, (error, success) => {
                 console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
@@ -52,10 +39,11 @@ module.exports = function(RED) {
                          msg.payload=success;
                          self.send(msg);
   		                   }
+                this.status({});
                 self.readyIota = true;
 	             });
             }
         });
     }
-    RED.nodes.registerType("iotasendtransfer",iotasendtransfer);
+    RED.nodes.registerType("iotanewaddress",iotanewaddress);
 }

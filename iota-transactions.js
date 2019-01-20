@@ -28,6 +28,7 @@ module.exports = function(RED) {
 
               this.readyIota = false;
               var self = this;
+              this.status({fill:"red",shape:"ring",text:"connecting"});
               iota.api.getTransactionsObjects([iota_hash], (error, success) => {
                 console.log("Report from iota node:")
   		            if (error) {
@@ -39,6 +40,7 @@ module.exports = function(RED) {
                          msg.payload=success;
                          self.send(msg);
   		                   }
+                this.status({});
                 self.readyIota = true;
 	             });
             }

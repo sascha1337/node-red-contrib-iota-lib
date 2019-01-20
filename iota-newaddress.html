@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('iotanewaddress',{
+        category: 'IOTA-api',
+        color: '#f6bbcf',
+        defaults: {
+            iotaNode: {value: "https://pool.trytes.eu"},
+	          iotaSeed: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "iota.png",
+        label: function() {
+            return this.name||"iotanewaddress";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="iotanewaddress">
+    <div class="form-row">
+      <label for="node-function-iotaNode"><i class="icon-tag"></i> IOTA node</label>
+      <input type="text" id="node-input-iotaNode" placeholder="node">
+    </div>
+    <div class="form-row">
+      <label for="node-function-iotaSeed"><i class="icon-tag"></i> Use seed</label>
+      <input type="text" id="node-input-iotaSeed" placeholder="seed">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="iotanewaddress">
+    <p>iotanewaddress node</p>
+</script>
