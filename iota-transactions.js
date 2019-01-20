@@ -41,9 +41,11 @@ module.exports = function(RED) {
                          iota.api.getLatestInclusion([iota_hash], function(err,suc) {
                              if (err) {
                                  console.error(err);
+                                 msg.payload=err;
+                                 self.send(msg);
                              } else {
                                  console.log(suc);
-                                 msg.payload[0].confirmed=suc[0];
+                                 msg.confirmed=suc;
                             }
                          });
                          self.send(msg);
