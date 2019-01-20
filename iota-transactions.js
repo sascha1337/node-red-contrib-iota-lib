@@ -45,7 +45,7 @@ module.exports = function(RED) {
                                  self.send(msg);
                              } else {
                                  console.log(suc);
-                                 msg.confirmed=suc;
+                                 msg.payload[0].confirmed=suc[0];
                             }
                          });
                          self.send(msg);
