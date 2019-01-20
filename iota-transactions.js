@@ -46,9 +46,9 @@ module.exports = function(RED) {
                              } else {
                                  console.log(suc);
                                  msg.payload[0].confirmed=suc[0];
+                                 self.send(msg);     
                             }
                          });
-                         self.send(msg);
   		                   }
                 this.status({});
                 self.readyIota = true;
