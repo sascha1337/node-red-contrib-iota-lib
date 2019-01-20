@@ -38,6 +38,14 @@ module.exports = function(RED) {
   		               } else {
     		                 console.log(success);
                          msg.payload=success;
+                         iota.api.getLatestInclusion([iota_hash], function(err,suc) {
+                             if (err) {
+                                 console.error(err);
+                             } else {
+                                 console.log(suc);
+                                 msg.payload[0].confirmed=suc[0];
+                            }
+                         });
                          self.send(msg);
   		                   }
                 this.status({});
