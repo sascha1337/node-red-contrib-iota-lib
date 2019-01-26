@@ -32,7 +32,7 @@ module.exports = function(RED) {
 	      const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
         //const iota_value = config.iotaValue;
         let iota_value = iota.utils.convertUnits(config.iotaValue, "Mi", "Mi");
-        console.log("sending founds Miotas: "+iota_value + "in TAG: " +aciitag);
+        console.log("sending founds Miotas: "+iota_value + "in TAG: " +asciitag);
 	      const transfers = [
 		  {
     			value: iota_value,
