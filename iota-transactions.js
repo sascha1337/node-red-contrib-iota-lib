@@ -27,8 +27,8 @@ module.exports = function(RED) {
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});
 
-              if (iota.valid.isHash(txt)) {
-                iota_hash = txt;
+              if (iota.valid.isHash(msg.payload)) {
+                iota_hash = msg.payload;
                 console.log("searching hash... : "+iota_hash);
               } else {
                 iota_hash = config.iotaHash;
