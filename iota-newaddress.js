@@ -24,7 +24,11 @@ module.exports = function(RED) {
               console.log("trytes: "+trytes)
 
               console.log("Get new address - please wait...")
-	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+              if (txt) {
+                const iota_seed = txt;
+              } else {
+	              const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+              }
               this.readyIota = false;
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});

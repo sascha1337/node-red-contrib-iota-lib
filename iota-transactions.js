@@ -22,9 +22,12 @@ module.exports = function(RED) {
 	            console.log("transliterated: "+ascii)
 
               console.log("Searching dataset via getTransactionsObjects - please wait")
-	            //const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-	            const iota_hash = config.iotaHash; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-              //const iota_tag = config.iotaTag; //Tag transaction
+
+              if (iota.valid.isHash(txt)) {
+                const iota_hash = txt;
+              } else {
+                const iota_hash = config.iotaHash;
+              }
 
               this.readyIota = false;
               var self = this;
@@ -46,7 +49,7 @@ module.exports = function(RED) {
                              } else {
                                  console.log(suc);
                                  msg.payload[0].confirmed=suc[0];
-                                 self.send(msg);     
+                                 self.send(msg);
                             }
                          });
   		                   }

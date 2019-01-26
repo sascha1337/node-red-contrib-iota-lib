@@ -24,7 +24,7 @@ module.exports = function(RED) {
               let trytestag = iota.utils.toTrytes(asciitag);
 
               console.log("message payload: "+msg.payload)
-	      console.log("transliterated: "+ascii)
+	            console.log("transliterated: "+ascii)
               console.log("trytes: "+trytes)
 
               console.log("Uploading dataset via sendTransfer - please wait")
@@ -37,7 +37,8 @@ module.exports = function(RED) {
 		  {
     			value: iota_value,
     			address: iota_addr,
-    			message: trytes
+    			message: trytes,
+          tag: asciitag
   		  }
 	      ]
               this.readyIota = false;
