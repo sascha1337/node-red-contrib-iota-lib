@@ -7,7 +7,7 @@ module.exports = function(RED) {
         var node = this;
         node._sec = 2;
 	      node._firstroot = '';
-
+        var iota_hash = '';
 	      console.log("Iota Api getTransactions: " + config.iotaNode);
 
 	      const iota = new IOTA({ provider: config.iotaNode });
@@ -28,10 +28,10 @@ module.exports = function(RED) {
               this.status({fill:"red",shape:"ring",text:"connecting"});
 
               if (iota.valid.isHash(txt)) {
-                let iota_hash = txt;
+                iota_hash = txt;
                 console.log("searching hash... : "+iota_hash);
               } else {
-                let iota_hash = config.iotaHash;
+                iota_hash = config.iotaHash;
                 console.log("searching hash: "+iota_hash);
               }
 
