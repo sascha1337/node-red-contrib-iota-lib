@@ -59,7 +59,7 @@ module.exports = function(RED) {
                 this.status({});
                 self.readyIota = true;
 	             });
-               this.status({fill:"red",shape:"ring",text:"fail"});
+               this.status({});
             }
         });
     }

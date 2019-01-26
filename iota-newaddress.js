@@ -24,8 +24,8 @@ module.exports = function(RED) {
               console.log("trytes: "+trytes)
 
               console.log("Get new address - please wait...")
-              if (txt) {
-                const iota_seed = txt;
+              if (iota.valid.isTrytes(msg.payload,81)) {
+                const iota_seed = msg.payload;
               } else {
 	              const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               }
