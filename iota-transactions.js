@@ -24,9 +24,9 @@ module.exports = function(RED) {
               console.log("Searching dataset via getTransactionsObjects - please wait")
 
               if (iota.valid.isHash(txt)) {
-                const iota_hash = txt;
+                let iota_hash = txt;
               } else {
-                const iota_hash = config.iotaHash;
+                let iota_hash = config.iotaHash;
               }
 
               this.readyIota = false;
