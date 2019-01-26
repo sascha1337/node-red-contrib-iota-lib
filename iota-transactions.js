@@ -23,15 +23,18 @@ module.exports = function(RED) {
 
               console.log("Searching dataset via getTransactionsObjects - please wait")
 
-              if (iota.valid.isHash(txt)) {
-                let iota_hash = txt;
-              } else {
-                let iota_hash = config.iotaHash;
-              }
-
               this.readyIota = false;
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});
+
+              if (iota.valid.isHash(txt)) {
+                let iota_hash = txt;
+                console.log("searching hash... : "+iota_hash);
+              } else {
+                let iota_hash = config.iotaHash;
+                console.log("searching hash: "+iota_hash);
+              }
+
               iota.api.getTransactionsObjects([iota_hash], (error, success) => {
                 console.log("Report from iota node:")
   		            if (error) {
@@ -56,6 +59,7 @@ module.exports = function(RED) {
                 this.status({});
                 self.readyIota = true;
 	             });
+               this.status({fill:"red",shape:"ring",text:"fail"});
             }
         });
     }
