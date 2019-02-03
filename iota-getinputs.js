@@ -5,6 +5,8 @@ module.exports = function(RED) {
     function iotagetinputs(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        var iota_seed = '';
+
         node._sec = 2;
 	      node._firstroot = '';
 
@@ -23,9 +25,9 @@ module.exports = function(RED) {
 
               console.log("Get account dataset via getInputs - please wait")
               if (iota.valid.isTrytes(msg.payload,81)) {
-                const iota_seed = msg.payload;
+                iota_seed = msg.payload;
               } else {
-	              const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+	              iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               }
               this.readyIota = false;
               var self = this;

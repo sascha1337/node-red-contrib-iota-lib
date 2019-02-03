@@ -59,7 +59,7 @@ module.exports = function(RED) {
                 this.status({});
                 self.readyIota = true;
 	             });
-               this.status({});
+               //this.status({});
             }
         });
     }
