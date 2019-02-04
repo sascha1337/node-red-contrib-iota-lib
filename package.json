@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "iota.lib.js": "^0.5.1",
-    "transliteration": "^1.6.2"
+    "transliteration": "^2.1.2"
   },
   "repository": {
     "type": "git",
