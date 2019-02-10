@@ -11,7 +11,6 @@ module.exports = function(RED) {
 	      node._firstroot = '';
 
 	      console.log("Iota Api getinputs: " + config.iotaNode);
-
 	      const iota = new IOTA({ provider: config.iotaNode });
         node.readyIota = true;
 

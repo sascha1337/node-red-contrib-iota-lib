@@ -9,7 +9,6 @@ module.exports = function(RED) {
 	      node._firstroot = '';
         var iota_hash = '';
 	      console.log("Iota Api getTransactions: " + config.iotaNode);
-
 	      const iota = new IOTA({ provider: config.iotaNode });
         node.readyIota = true;
 

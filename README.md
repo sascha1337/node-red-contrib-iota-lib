@@ -1,25 +1,19 @@
-# Node-Red IOTA library module ( in progress )
+Node-Red IOTA library module ( in progress )
 
-## Requirements
+Requirements
 
 Install node-red globally and install ui packages
 
-```
 sudo npm install -g --unsafe-perm node-red
-```
 
-in your ~/.node-red installation directory type:
-```
-npm install node-red-dashboard
-```
 
-# IOTA-lib module installation
+
+IOTA-lib module installation, in your ~/.node-red installation directory type:
 
 Run the following command in your NODE-RED install
-```
+
 npm install node-red-contrib-iota-lib
-```
 
-# Usage
+Usage
 
-There is one function node available.
+There are four functions node available.
