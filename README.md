@@ -16,4 +16,5 @@ npm install node-red-contrib-iota-lib
 
 Usage
 
-There are four functions node available.
+There are four functions node available to do IOTA transactions.
+Ther are two functions node available to do MAM messages into the tangle.
