@@ -20,7 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "iota.lib.js": "^0.5.1",
-    "transliteration": "^2.1.2"
+    "transliteration": "^2.1.2",
+    "mam.client.js": "^0.1.0"
   },
   "repository": {
     "type": "git",
