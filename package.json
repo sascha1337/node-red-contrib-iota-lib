@@ -21,7 +21,7 @@
   "dependencies": {
     "iota.lib.js": "^0.5.1",
     "transliteration": "^2.1.2",
-    "mam.client.js": "^0.2.3"
+    "@iota/mam": "^0.5.0"
   },
   "repository": {
     "type": "git",
