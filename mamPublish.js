@@ -1,5 +1,6 @@
 const IOTA = require('iota.lib.js');
 const MAM = require('@iota/mam/lib/mam.client.js');
+const TRAN = require('transliteration');
 
 function mamSeedGen() {
   var text = "";
@@ -25,7 +26,7 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             if (this.readyMAM) {
-              
+
               let txt = JSON.stringify(msg.payload);
               let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
