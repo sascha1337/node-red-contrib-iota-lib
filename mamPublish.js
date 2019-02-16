@@ -1,5 +1,5 @@
 const IOTA = require('iota.lib.js');
-const MAM = require('./mam.node.js');
+const MAM = require('@iota/mam/lib/mam.client.js');
 
 function mamSeedGen() {
   var text = "";
