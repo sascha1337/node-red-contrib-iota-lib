@@ -1,5 +1,5 @@
 const IOTA = require('iota.lib.js');
-const MAM = require('./mam.node.js');
+const MAM = require('mam.client.js/lib/mam.client.js');
 
 module.exports = function(RED) {
     function mamFetch(config) {
@@ -12,7 +12,7 @@ module.exports = function(RED) {
 
         let mamRoot = config.root;
         let mamState = MAM.init(iota)
-
+        this.status({fill:"red",shape:"ring",text:"connecting"});
         let resp = MAM.fetch(mamRoot, 'public', null);
 
         resp.then(function(result) {
@@ -26,6 +26,7 @@ module.exports = function(RED) {
           });
           console.log("###############################################");
         });
+        this.status({});
     }
     RED.nodes.registerType("mamFetch",mamFetch);
 }

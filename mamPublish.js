@@ -1,5 +1,5 @@
 const IOTA = require('iota.lib.js');
-const MAM = require('./mam.node.js');
+const MAM = require('mam.client.js/lib/mam.client.js');
 const TRAN = require('transliteration');
 
 function mamSeedGen() {
@@ -37,10 +37,12 @@ module.exports = function(RED) {
 
               console.log("Uploading dataset via MAM - please wait")
               console.log(message.address)
+              this.status({fill:"red",shape:"ring",text:"connecting"});
               let resp = MAM.attach(message.payload, message.address);
               this.readyMAM = false;
               resp.then(function(result) {
-                 // console.log(result) //will log results.
+                 console.log(result) //will log results.
+                 this.status({});
                  node.readyMAM = true;
                  node.send({payload:message.address});
               });
