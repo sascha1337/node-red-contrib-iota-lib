@@ -14,7 +14,7 @@ function mamSeedGen() {
 }
 
 module.exports = function(RED) {
-    function mamPublish(config) {
+    function iotamamPublish(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         node._sec = 2;
@@ -49,5 +49,5 @@ module.exports = function(RED) {
             }
         });
     }
-    RED.nodes.registerType("mamPublish",mamPublish);
+    RED.nodes.registerType("iotamamPublish",iotamamPublish);
 }

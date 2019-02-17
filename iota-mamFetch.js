@@ -2,7 +2,7 @@ const IOTA = require('iota.lib.js');
 const MAM = require('mam.client.js/lib/mam.client.js');
 
 module.exports = function(RED) {
-    function mamFetch(config) {
+    function iotamamFetch(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         console.log("MAM fetch on iota node: " + config.iotaNode);
@@ -28,5 +28,5 @@ module.exports = function(RED) {
         });
         this.status({});
     }
-    RED.nodes.registerType("mamFetch",mamFetch);
+    RED.nodes.registerType("iotamamFetch",iotamamFetch);
 }

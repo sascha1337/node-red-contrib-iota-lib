@@ -12,8 +12,8 @@
       "iotasendtransfer": "iota-sendtransfer.js",
       "iotagetinputs": "iota-getinputs.js",
       "iotanewaddress": "iota-newaddress.js",
-      "mamFetch": "mamFetch.js",
-      "mamPublish": "mamPublish.js"
+      "mamFetch": "iota-mamFetch.js",
+      "mamPublish": "iota-mamPublish.js"
     }
   },
   "author": "vruiz@wittelecom.com>",
