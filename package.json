@@ -11,9 +11,7 @@
       "iotatransactions": "iota-transactions.js",
       "iotasendtransfer": "iota-sendtransfer.js",
       "iotagetinputs": "iota-getinputs.js",
-      "iotanewaddress": "iota-newaddress.js",
-      "mamFetch": "iota-mamFetch.js",
-      "mamPublish": "iota-mamPublish.js"
+      "iotanewaddress": "iota-newaddress.js"
     }
   },
   "author": "vruiz@wittelecom.com>",
@@ -29,7 +27,7 @@
   "keywords": [
     "node-red",
     "iota",
-    "sensortag",
-    "sensornode"
+    "thetangle",
+    "tangle"
   ]
 }
