@@ -17,18 +17,23 @@
 
 <script type="text/x-red" data-template-name="iotagetinputs">
     <div class="form-row">
-      <label for="node-function-iotaNode"><i class="icon-tag"></i> IOTA node</label>
+      <label for="node-function-iotaNode"><i class="fa fa-server"></i> IOTA node</label>
       <input type="text" id="node-input-iotaNode" placeholder="node">
     </div>
     <div class="form-row">
-      <label for="node-function-iotaSeed"><i class="icon-tag"></i> Use seed</label>
+      <label for="node-function-iotaSeed"><i class="icon-tasks"></i> Use seed</label>
       <input type="text" id="node-input-iotaSeed" placeholder="seed">
     </div>
+    <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" class="paletteLabel" placeholder="Name">
+    </div>
+
 </script>
 
 <script type="text/x-red" data-help-name="iotagetinputs">
    <p>A node that work with IOTA</p>
-    <b>IOTAnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual).<br><br>
+    <b>IOTAnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual). Default value pow.iota.community:443 <br><br>
     <b>Seed:</b> Enter your IOTA seed (81 Trytes).<br><br>
    <p>In case of success <code>msg.payload</code> is set to data.</p>
    <p>Please visit IOTA Dance to see all server prividers on this: <a href="https://iota.dance/" target="_blank">link</a>.</p>
