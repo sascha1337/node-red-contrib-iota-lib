@@ -7,6 +7,7 @@ module.exports = function(RED) {
         var node = this;
         node._sec = 2;
 	      node._firstroot = '';
+        var iota_seed = '';
 
 	      console.log("Iota Api getNewAddress: " + config.iotaNode);
 	      const iota = new IOTA({ provider: config.iotaNode });
@@ -24,9 +25,9 @@ module.exports = function(RED) {
 
               console.log("Get new address - please wait...")
               if (iota.valid.isTrytes(msg.payload,81)) {
-                const iota_seed = msg.payload;
+                iota_seed = msg.payload;
               } else {
-	              const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+	              iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
               }
               this.readyIota = false;
               var self = this;

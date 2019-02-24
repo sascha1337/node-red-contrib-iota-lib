@@ -35,7 +35,8 @@ module.exports = function(RED) {
 	      const transfers = [{
     			'value': iota_value,
     			'address': iota_addr,
-    			'message': trytes
+    			'message': trytes,
+          'tag': trytestag
   		  }]
               this.readyIota = false;
               this.status({fill:"red",shape:"ring",text:"connecting"});
