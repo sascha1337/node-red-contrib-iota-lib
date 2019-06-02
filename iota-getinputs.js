@@ -9,9 +9,9 @@ module.exports = function(RED) {
 
         node._sec = 2;
 	      node._firstroot = '';
-
-	      console.log("Iota Api getinputs: " + config.iotaNode);
-	      const iota = new IOTA({ provider: config.iotaNode });
+        this.iotaNode = RED.nodes.getNode(config.iotaNode);
+	      //console.log("Iota Api getinputs: " + this.iotaNode);
+	      const iota = new IOTA({ provider: this.iotaNode });
         node.readyIota = true;
 
         node.on('input', function(msg) {

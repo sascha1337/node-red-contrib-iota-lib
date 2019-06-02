@@ -8,7 +8,7 @@ module.exports = function(RED) {
         node._sec = 2;
 	node._firstroot = '';
   this.iotaNode = RED.nodes.getNode(config.iotaNode);
-	console.log("Configuring sendransfer on iota node: " + this.iotaNode);
+	//console.log("Configuring sendransfer on iota node: " + this.iotaNode);
 
 	const iota = new IOTA({ provider: this.iotaNode })
         node.readyIota = true;

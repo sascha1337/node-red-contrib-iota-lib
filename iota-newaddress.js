@@ -8,9 +8,9 @@ module.exports = function(RED) {
         node._sec = 2;
 	      node._firstroot = '';
         var iota_seed = '';
-
-	      console.log("Iota Api getNewAddress: " + config.iotaNode);
-	      const iota = new IOTA({ provider: config.iotaNode });
+        this.iotaNode = RED.nodes.getNode(config.iotaNode);
+	      //console.log("Iota Api getNewAddress: " + this.iotaNode);
+	      const iota = new IOTA({ provider: this.iotaNode });
         node.readyIota = true;
 
         node.on('input', function(msg) {
