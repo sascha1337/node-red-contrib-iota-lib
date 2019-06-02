@@ -11,7 +11,8 @@
       "iotatransactions": "iota-transactions.js",
       "iotasendtransfer": "iota-sendtransfer.js",
       "iotagetinputs": "iota-getinputs.js",
-      "iotanewaddress": "iota-newaddress.js"
+      "iotanewaddress": "iota-newaddress.js",
+      "iotaservernode" : "iota-servernode.js"
     }
   },
   "author": "vruiz@wittelecom.com>",
