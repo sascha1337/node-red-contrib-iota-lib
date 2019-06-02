@@ -7,9 +7,10 @@ module.exports = function(RED) {
         var node = this;
         node._sec = 2;
 	node._firstroot = '';
-	console.log("Publish 0-value tx on iota node: " + config.iotaNode);
+  this.iotaNode = RED.nodes.getNode(config.iotaNode);
+	//console.log("Publish 0-value tx on iota node: " + config.iotaNode);
 
-	const iota = new IOTA({ provider: config.iotaNode })
+	const iota = new IOTA({ provider: this.iotaNode })
         node.readyIota = true;
 
         node.on('input', function(msg) {
