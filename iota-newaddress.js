@@ -10,7 +10,8 @@ module.exports = function(RED) {
         var iota_seed = '';
         this.iotaNode = RED.nodes.getNode(config.iotaNode);
 	      //console.log("Iota Api getNewAddress: " + this.iotaNode);
-	      const iota = new IOTA({ provider: this.iotaNode });
+	      //const iota = new IOTA({ provider: this.iotaNode });
+        const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         node.readyIota = true;
 
         node.on('input', function(msg) {

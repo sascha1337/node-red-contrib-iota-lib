@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-iota-lib",
   "version": "0.0.9",
-  "description": "",
+  "description": "Node Red integration whith IOTA",
   "main": "iota-transactions.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
