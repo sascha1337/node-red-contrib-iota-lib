@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mamFetch',{
+        category: 'IOTA-api',
+        color: '#f6bbcf',
+        defaults: {
+            iotaNode: {value: "", type:"iota-server"},
+            root: {value: "TZXPUGEGVFRQINJLIJLBMTUDVMRJSNNOPULCLDPALBKJZBLG9WGGPMVIYOGEWJNUKUPUE9JWJIIBBRHWDQQCHHGLQW"},
+            mode: {value: 'public'},
+            secret: {value: 'VERYSECRETKEY'},
+            limit: {value: 1}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "iota.png",
+        label: function() {
+            return this.name||"mamFetch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mamFetch">
+    <div class="form-row">
+        <label for="node-function-iotaNode"><i class="fa fa-server"></i> MAM node</label>
+        <input type="text" id="node-input-iotaNode" placeholder="mam node">
+        <br>
+        <label for="node-function-root"><i class="icon-tag"></i> MAM root</label>
+        <input type="text" id="node-input-root">
+        <br>
+        <label for="node-function-root"><i class="icon-tag"></i> MAM mode</label>
+        <input type="text" id="node-input-mode">
+        <br>
+        <label for="node-function-key"><i class="icon-tag"></i> MAM secret key (restricted mode) </label>
+        <input type="text" id="node-input-secret">
+        <br>
+        <label for="node-function-secretKey"><i class="icon-tag"></i> MAM fetch limit</label>
+        <input type="text" id="node-input-limit">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="mamFetch">
+    <p>MAM fetch node</p>
+</script>
