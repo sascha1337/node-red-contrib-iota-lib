@@ -13,7 +13,7 @@ module.exports = function(RED) {
         node.tag = config.tag;
         node.readyMAM = true;
         node.arrayPackets = [];
-        node.mamLink = 'https://mam-explorer.firebaseapp.com/?provider=${encodeURIComponent(provider)}&mode=' + config.mode + '&root=';
+        node.mamLink = 'https://mam-explorer.firebaseapp.com/?provider=' + node.iotaNode.host + ':' + node.iotaNode.port + '&mode=' + config.mode + '&root=';
 
         node.on('input', function(msg) {
             const packet = { time: Date.now(), tag: node.tag, data: msg.payload };
