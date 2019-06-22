@@ -15,7 +15,7 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             // upload sensorTag's data packet: (msg.payload.json_data)
-            const packet = { time: Date.now(), data: msg.payload };
+            const packet = { time: Date.now(), tag: config.tag, data: msg.payload };
             this.arrayPackets.push(packet);
             console.log(this.arrayPackets.length);
 
