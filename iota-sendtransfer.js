@@ -43,7 +43,7 @@ module.exports = function(RED) {
               this.readyIota = false;
               this.status({fill:"red",shape:"ring",text:"connecting"});
               var self = this;
-              iota.api.sendTransfer(iota_seed, 14, 14, transfers, (error, success) => {
+              iota.api.sendTransfer(iota_seed, 4, 14, transfers, (error, success) => {
                 console.log("Report from iota node:")
   		if (error) {
     	 	  console.log(error);
