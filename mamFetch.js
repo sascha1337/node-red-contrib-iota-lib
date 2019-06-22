@@ -13,7 +13,7 @@ module.exports = function(RED) {
           console.log("MAM fetch on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
           console.log("MAM root: " + config.root);
           console.log("MAM mode: " + config.mode);
-          console.log("MAM secret: " + config.secret);
+          //console.log("MAM secret: " + config.secret);
           console.log("Fetching data ... ");
 
           let mamState = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
@@ -28,7 +28,7 @@ module.exports = function(RED) {
           let resp = MAM.fetch(root, config.mode, config.secret, (result) => {
             let jsonArray = JSON.parse(IOTA_CONVERTER.trytesToAscii(result));
             for (var i = 0; i < jsonArray.length; i++) {
-              node.send(jsonArray[i]);
+              node.send({payload: jsonArray[i]});
               // console.log(jsonArray[i])
             }
           }, config.limit);
