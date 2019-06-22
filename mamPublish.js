@@ -9,7 +9,7 @@ module.exports = function(RED) {
       	//const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
-        node._state = MAM.changeMode(node._state, config.mode, config.secretKey);
+        node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
         node.readyMAM = true;
         node.arrayPackets = []
 
@@ -28,7 +28,7 @@ module.exports = function(RED) {
 
               console.log("Uploading dataset via MAM - please wait");
               console.log(message.address);
-              let resp = MAM.attach(message.payload, message.address);
+              let resp = MAM.attach(message.payload, message.address,,config.tag);
               this.readyMAM = false;
               this.arrayPackets = [];
               resp.then(function(result) {

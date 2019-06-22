@@ -5,7 +5,8 @@
       defaults: {
             iotaNode: {value: "", type:"iota-server"},
             mode: {value: 'public'},
-            secretKey: {value: null},
+            sidkey: {value: null},
+            tag: {value: "FROMNODERED"},
             name: {value:""}
         },
         inputs:1,
@@ -23,12 +24,12 @@
       <input type="text" id="node-input-iotaNode" placeholder="MAM node">
     </div>
     <div class="form-row">
-      <label for="node-function-root"><i class="icon-tag"></i> Channel mode</label>
+      <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
       <input type="text" id="node-input-mode">
     </div>
     <div class="form-row">
-      <label for="node-function-key"><i class="icon-tag"></i> Sidkey</label>
-      <input type="text" id="node-input-secret">
+      <label for="node-function-sidkey"><i class="icon-tag"></i> Sidkey</label>
+      <input type="text" id="node-input-sidkey">
     </div>
     <div class="form-row">
       <label for="node-function-tag"><i class="icon-tag"></i> Tag</label>

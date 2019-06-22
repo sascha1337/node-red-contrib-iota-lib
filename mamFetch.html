@@ -22,21 +22,35 @@
     <div class="form-row">
         <label for="node-function-iotaNode"><i class="fa fa-server"></i> MAM node</label>
         <input type="text" id="node-input-iotaNode" placeholder="mam node">
-        <br>
-        <label for="node-function-root"><i class="icon-tag"></i> MAM root</label>
+    </div>
+    <div class="form-row">
+        <label for="node-function-root"><i class="icon-tag"></i> Use root</label>
         <input type="text" id="node-input-root">
-        <br>
-        <label for="node-function-root"><i class="icon-tag"></i> MAM mode</label>
+    </div>
+    <div class="form-row">
+        <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
         <input type="text" id="node-input-mode">
-        <br>
-        <label for="node-function-key"><i class="icon-tag"></i> MAM secret key (restricted mode) </label>
+    </div>
+    <div class="form-row">
+        <label for="node-function-secret"><i class="icon-tag"></i> Secret key (restricted mode) </label>
         <input type="text" id="node-input-secret">
-        <br>
-        <label for="node-function-secretKey"><i class="icon-tag"></i> MAM fetch limit</label>
+    </div>
+    <div class="form-row">
+        <label for="node-function-limit"><i class="icon-tag"></i> Fetch limit</label>
         <input type="text" id="node-input-limit">
     </div>
 </script>
 
 <script type="text/x-red" data-help-name="mamFetch">
     <p>MAM fetch node</p>
+    <b>MAMnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual). Default value pow.iota.community:443 <br><br>
+    <b>Channelmode: </b> String Intended channel mode. Can be only: public, private or restricted.<br><br>
+    <b>SidKey:</b> String Tryte-encoded encryption key, any length. Required for restricted mode.<br><br>
+    <b>Limit:</b> Number Optional limits the number of items returned, defaults to all.<br><br>
+   <p>In case of success <code>msg.payload</code> is set to data.</p>
+   <p>Please visit IOTA Dance to see all server prividers on this: <a href="https://iota.dance/" target="_blank">link</a>.</p>
+   <p>Follow the message in: <a href="https://mam-explorer.firebaseapp.com/" target="_blank">link</a>.</p>
+   <p>Read more about iota.lib.js API: <a href="https://www.npmjs.com/package/iota.lib.js" target="_blank">here</a>.</p>
+
+
 </script>
