@@ -10,12 +10,12 @@ module.exports = function(RED) {
         console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
+        node.tag = config.tag;
         node.readyMAM = true;
         node.arrayPackets = []
 
         node.on('input', function(msg) {
-            // upload sensorTag's data packet: (msg.payload.json_data)
-            const packet = { time: Date.now(), tag: config.tag, data: msg.payload };
+            const packet = { time: Date.now(), tag: node.tag, data: msg.payload };
             this.arrayPackets.push(packet);
             console.log(this.arrayPackets.length);
             console.log(JSON.stringify(this.arrayPackets));
