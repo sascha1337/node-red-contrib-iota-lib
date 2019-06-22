@@ -24,6 +24,7 @@ module.exports = function(RED) {
           if (config.mode == 'public') {
             config.secret = null;
           }
+          this.status({fill:"red",shape:"ring",text:"fetching"});
           let resp = MAM.fetch(root, config.mode, config.secret, (result) => {
             let jsonArray = JSON.parse(IOTA_CONVERTER.trytesToAscii(result));
             for (var i = 0; i < jsonArray.length; i++) {
@@ -31,6 +32,7 @@ module.exports = function(RED) {
               // console.log(jsonArray[i])
             }
           }, config.limit);
+          this.status({});
         });
     }
     RED.nodes.registerType("mamFetch",mamFetch);
