@@ -18,6 +18,7 @@ module.exports = function(RED) {
             const packet = { time: Date.now(), tag: config.tag, data: msg.payload };
             this.arrayPackets.push(packet);
             console.log(this.arrayPackets.length);
+            console.log(JSON.stringify(this.arrayPackets));
 
             if (this.readyMAM) {
               let trytes = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(this.arrayPackets));
