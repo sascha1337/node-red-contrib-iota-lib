@@ -12,7 +12,8 @@ module.exports = function(RED) {
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
         node.tag = config.tag;
         node.readyMAM = true;
-        node.arrayPackets = []
+        node.arrayPackets = [];
+        node.mamLink = 'https://mam-explorer.firebaseapp.com/?provider=${encodeURIComponent(provider)}&mode=' + config.mode + '&root=';
 
         node.on('input', function(msg) {
             const packet = { time: Date.now(), tag: node.tag, data: msg.payload };
@@ -28,11 +29,12 @@ module.exports = function(RED) {
 
               console.log("Uploading dataset via MAM - please wait");
               console.log(message.address);
-              let resp = MAM.attach(message.payload, message.address);
+              let resp = MAM.attach(message.payload, message.address, , , node.tag);
               this.readyMAM = false;
               this.arrayPackets = [];
               resp.then(function(result) {
-                 console.log(result) //will log results.
+                 console.log(result); //will log results.
+                 console.log('Verify with MAM Explorer: '  + node.mamLink + message.address);
                  node.readyMAM = true;
                  node.send({payload: message.address});
               });
