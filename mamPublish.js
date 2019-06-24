@@ -30,7 +30,7 @@ module.exports = function(RED) {
               console.log("Uploading dataset via MAM - please wait");
               console.log(message.address);
               node.status({fill:"red",shape:"ring",text:"publishing"});
-              let resp = MAM.attach(message.payload, message.address,3,14,node.tag);
+              let resp = MAM.attach(message.payload, message.address,node.tag);
               this.readyMAM = false;
               node.status({});
               this.arrayPackets = [];
