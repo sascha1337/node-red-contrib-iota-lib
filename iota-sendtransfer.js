@@ -38,7 +38,7 @@ module.exports = function(RED) {
     			'value': iota_value,
     			'address': iota_addr,
     			'message': trytes,
-          'tag': asciitag
+          'tag': trytestag
   		  }]
               this.readyIota = false;
               this.status({fill:"red",shape:"ring",text:"connecting"});
