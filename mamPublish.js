@@ -33,7 +33,6 @@ module.exports = function(RED) {
               this.status({fill:"red",shape:"ring",text:"publishing"});
               let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
               this.readyMAM = false;
-              this.status({});
               this.arrayPackets = [];
               resp.then(function(result) {
                  console.log(result); //will log results.
@@ -42,6 +41,7 @@ module.exports = function(RED) {
                  this.readyMAM = true;
                  node.send({payload: {address:message.address, state:message.state, link:link}});
               });
+              this.status({});;
             } else {
 
             }
