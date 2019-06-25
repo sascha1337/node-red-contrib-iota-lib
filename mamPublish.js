@@ -8,7 +8,7 @@ module.exports = function(RED) {
         node.iotaNode = RED.nodes.getNode(config.iotaNode);
       	//const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
-        node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
+        node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
         node.tag = config.tag;
         node.readyMAM = true;

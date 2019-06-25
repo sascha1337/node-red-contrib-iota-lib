@@ -4,6 +4,7 @@
       color: '#f6bbcf',
       defaults: {
             iotaNode: {value: "", type:"iota-server"},
+            channelseed:{value:"VAEOUKFNMLFLCHHJSJYQXNS9HXCTVVITMLR9SXBVTGRTZHGXFOIUHETEIG9EWVORNLYXUGENZ9UHEOOTE"},
             mode: {value: 'public'},
             sidkey: {value: null},
             tag: {value: "FROMNODERED"},
@@ -22,6 +23,10 @@
     <div class="form-row">
       <label for="node-function-iotaNode"><i class="fa fa-server"></i> MAMnode</label>
       <input type="text" id="node-input-iotaNode" placeholder="MAM node">
+    </div>
+    <div class="form-row">
+      <label for="node-function-channelseed"><i class="fa fa-server"></i> MAMnode</label>
+      <input type="text" id="node-input-channelseed" placeholder="MAM seed">
     </div>
     <div class="form-row">
       <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
