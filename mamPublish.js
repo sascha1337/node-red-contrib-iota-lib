@@ -39,7 +39,7 @@ module.exports = function(RED) {
                  console.log(result); //will log results.
                  console.log('Verify with MAM Explorer: '  + node.mamLink + message.address);
                  let link = node.mamLink + message.address;
-                 node.readyMAM = true;
+                 this.readyMAM = true;
                  node.send({payload: {address:message.address, state:message.state, link:link}});
               });
             } else {
