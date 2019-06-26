@@ -16,14 +16,14 @@ module.exports = function(RED) {
         node.mamLink = 'https://mam-explorer.firebaseapp.com/?provider=' + node.iotaNode.host + ':' + node.iotaNode.port + '&mode=' + config.mode + '&root=';
 
         node.on('input', function(msg) {
-            const packet = { time: Date.now(), tag: node.tag, data: msg.payload };
+            let trytestag = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(node.tag));
+            const packet = { time: Date.now(), tag: trytestag, data: msg.payload };
             this.arrayPackets.push(packet);
             console.log(this.arrayPackets.length);
             console.log(JSON.stringify(this.arrayPackets));
 
             if (this.readyMAM) {
               let trytes = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(this.arrayPackets));
-              let trytestag = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(node.tag));
               let message = MAM.create(this._state, trytes);
               // Update the mam state so we can keep adding messages.
               this._state = message.state;
