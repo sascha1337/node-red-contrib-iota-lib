@@ -4,9 +4,9 @@
         color: '#f6bbcf',
         defaults: {
             iotaNode: {value: "", type:"iota-server"},
-            root: {value: "TZXPUGEGVFRQINJLIJLBMTUDVMRJSNNOPULCLDPALBKJZBLG9WGGPMVIYOGEWJNUKUPUE9JWJIIBBRHWDQQCHHGLQW"},
+            root: {value: "YBOBVSILRVCIIUZDPUCFQPGVJPAAUYPCNFPJBQWNKFUZEKFAJAGZAJGUTPIEWYBXWRNZHCEFIRIVOYTYWFLXRIDFBW"},
             mode: {value: 'public'},
-            secret: {value: 'VERYSECRETKEY'},
+            secret: {value: ''},
             limit: {value: 1}
         },
         inputs:1,
@@ -25,7 +25,7 @@
     </div>
     <div class="form-row">
         <label for="node-function-root"><i class="icon-tag"></i> Use root</label>
-        <input type="text" id="node-input-root">
+        <input type="text" id="node-input-root" placeholder="MAM root 81 trytes. Empty to generate new root">
     </div>
     <div class="form-row">
         <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
