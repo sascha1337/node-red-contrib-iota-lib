@@ -30,7 +30,12 @@
     </div>
     <div class="form-row">
       <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
-      <input type="text" id="node-input-mode">
+      <input type="select" id="node-input-mode">
+      <select id="node-input-mode">
+            <option value="public">public</option>
+            <option value="restricted">restricted</option>
+            <option value="private">private</option>
+        </select>
     </div>
     <div class="form-row">
       <label for="node-function-sidkey"><i class="icon-tag"></i> Sidkey</label>
@@ -49,6 +54,7 @@
 <script type="text/x-red" data-help-name="mamPublish">
     <p>MAM publish node</p>
     <b>MAMnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual). Default value pow.iota.community:443 <br><br>
+    <b>ChannelSeed: </b> Enter your MAM seed (81 Trytes). Null value will create new seed<br><br>
     <b>Channelmode: </b> String Intended channel mode. Can be only: public, private or restricted.<br><br>
     <b>SidKey:</b> String Tryte-encoded encryption key, any length. Required for restricted mode.<br><br>
     <b>Tag:</b> Enter a Tag for transaction.<br><br>
