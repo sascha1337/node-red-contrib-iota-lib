@@ -7,7 +7,7 @@ module.exports = function(RED) {
         var node = this;
         node.fromconverter = config.fromconverter;
         node.toconverter = config.toconverter;
-        node.packet = config.message;
+        node.packet = config.mesage;
         node.result = "";
 
         node.on('input', function(msg) {
