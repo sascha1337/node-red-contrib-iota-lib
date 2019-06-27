@@ -14,7 +14,7 @@ module.exports = function(RED) {
             //const node.formconverter = config.fromconverter;
             //const toconverter = config.toconverter;
             //var packet = msg.payload;
-            if (node.packet = null) { node.packet = msg.payload};
+            if (node.packet = "") { node.packet = msg.payload};
             switch (node.fromconverter) {
                   case 'string':
                     console.log('string: ' + node.packet);
