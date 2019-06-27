@@ -8,7 +8,7 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
             const formconverter = config.fromconverter;
             const toconverter = config.toconverter;
-            const packet = msg.payload;
+            var packet = msg.payload;
             if (packet = null) { packet = config.message};
             var result ="";
             switch (fromconverter) {
