@@ -8,66 +8,66 @@ module.exports = function(RED) {
         node.fromconverter = config.fromconverter;
         node.toconverter = config.toconverter;
         node.packet = config.message;
+        node.result = "";
 
         node.on('input', function(msg) {
             //const node.formconverter = config.fromconverter;
             //const toconverter = config.toconverter;
             //var packet = msg.payload;
-            if (packet = null) { packet = msg.payload};
-            var result ="";
-            switch (fromconverter) {
+            if (node.packet = null) { node.packet = msg.payload};
+            switch (node.fromconverter) {
                   case 'string':
-                    console.log('string: ' + packet);
-                    switch (toconverter) {
+                    console.log('string: ' + node.packet);
+                    switch (node.toconverter) {
                       case 'trytes':
-                        result = asciiToTrytes(packet);
-                        console.log({payload_trytes:result});
+                        node.result = asciiToTrytes(node.packet);
+                        console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
-                        result = trits(packet);
-                        console.log({payload_trits:result});
+                        node.result = trits(node.packet);
+                        console.log({payload_trits:node.result});
                         break;
                       case 'string':
-                        console.log({payload_string:packet});
+                        console.log({payload_string:node.packet});
                         break;
                     }
                   break;
                   case 'trytes':
-                    console.log('trytes: ' + packet + " isTrytes: " + isTrytes(packet));
-                    switch (toconverter) {
+                    console.log('trytes: ' + node.packet + " isTrytes: " + isTrytes(node.packet));
+                    switch (node.toconverter) {
                       case 'trytes':
-                        console.log({payload_trytes:packet});
+                        console.log({payload_trytes:node.packet});
                         break;
                       case 'trits':
-                        result = trits(packet);
-                        console.log({payload_trits:result});
+                        node.result = trits(node.packet);
+                        console.log({payload_trits:node.result});
                         break;
                       case 'string':
-                        result = trytesToAscii((packet));
-                        console.log({payload_string:result});
+                        node.result = trytesToAscii((node.packet));
+                        console.log({payload_string:node.result});
                         break;
                     }
                   break;
                   case 'trits':
-                     console.log('trits: ' + packet);
-                     switch (toconverter) {
+                     console.log('trits: ' + node.packet);
+                     switch (node.toconverter) {
                          case 'trytes':
-                                 result = trytes(packet);
-                                 console.log({payload_trytes:result});
+                                 node.result = trytes(node.packet);
+                                 console.log({payload_trytes:node.result});
                                  break;
                          case 'trits':
-                                 console.log({payload_trits:packet});
+                                 console.log({payload_trits:node.packet});
                                  break;
                          case 'string':
-                                 result = trytesToAscii(trytes(packet));
-                                 console.log({payload_string:result});
+                                 node.result = trytesToAscii(trytes(node.packet));
+                                 console.log({payload_string:node.result});
                                  break;
                      }
                    break;
                    default:
-                      console.log('Lo lamentamos, por el momento no disponemos de ' + fromconverter + '.');
+                      console.log('Lo lamentamos, por el momento no disponemos de ' + node.fromconverter + '.');
                 }
-              node.send({payload: result});
+              node.send({payload: node.result});
         });
     }
     RED.nodes.registerType("iotaConverter",iotaConverter);
