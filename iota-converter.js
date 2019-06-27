@@ -5,11 +5,15 @@ module.exports = function(RED) {
     function iotaConverter(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        node.fromconverter = config.fromconverter;
+        node.toconverter = config.toconverter;
+        node.packet = config.message;
+
         node.on('input', function(msg) {
-            const formconverter = config.fromconverter;
-            const toconverter = config.toconverter;
-            var packet = msg.payload;
-            if (packet = null) { packet = config.message};
+            //const node.formconverter = config.fromconverter;
+            //const toconverter = config.toconverter;
+            //var packet = msg.payload;
+            if (packet = null) { packet = msg.payload};
             var result ="";
             switch (fromconverter) {
                   case 'string':
