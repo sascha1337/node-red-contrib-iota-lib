@@ -1,5 +1,5 @@
-const { asciiToTrytes, trytesToAscii, trits, trytes, value, fromValue } = require('@iota/converter')
-const { isTrytes } = require('@iota/validators')
+const { asciiToTrytes, trytesToAscii, trits, trytes, value, fromValue } = require('@iota/converter');
+const { isTrytes } = require('@iota/validators');
 
 module.exports = function(RED) {
     function iotaConverter(config) {
