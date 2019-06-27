@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    RED.nodes.registerType('iotaConverter',{
+        category: 'IOTA-api',
+        color: '#f6bbcf',
+        defaults: {
+            fromtoconverter: 'string',
+            toconverter: 'trytes',
+            message: 'Hello World'
+        },
+        inputs:1,
+        outputs:1,
+        icon: "iota.png",
+        label: function() {
+            return this.name||"iotaConverter";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="iotaConverter">
+        <div class="form-row">
+        <label for="node-function-fromconverter"><i class="icon-tag"></i> From</label>
+          <select id="node-input-fromconverter">
+              <option value="string">string</option>
+              <option value="trytes">trytes</option>
+              <option value="trits">trits</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+        <label for="node-function-toconverter"><i class="icon-tag"></i> To</label>
+          <select id="node-input-toconverter">
+              <option value="string">string</option>
+              <option value="trytes">trytes</option>
+              <option value="trits">trits</option>
+          </select>
+        </div>
+
+    <div class="form-row">
+        <label for="node-function-message"><i class="icon-tag"></i> Value or String</label>
+        <input type="text" id="node-input-message" placeholder="insert value tu convert">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="iotaConverter">
+    <p>IOTA Converter</p>
+    <b>From: </b> Select option <br><br>
+    <b>To: </b> Select option <br><br>
+    <b>Message:</b> Type your message to convert.<br><br>
+   <p>In case of success <code>msg.payload</code> is set to data.</p>
+      <p>Read more about iota.lib.js API: <a href="https://www.npmjs.com/package/iota.lib.js" target="_blank">here</a>.</p>
+</script>
