@@ -9,11 +9,8 @@ module.exports = function(RED) {
             const formconverter = config.fromconverter;
             const toconverter = config.toconverter;
             const packet = msg.payload;
+            if (packet = null) { packet = config.message};
             var result ="";
-            this.arrayPackets.push(packet);
-            console.log(this.arrayPackets.length);
-            console.log(JSON.stringify(this.arrayPackets));
-
             switch (fromconverter) {
                   case 'string':
                     console.log('string: ' + packet);

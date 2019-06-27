@@ -3,9 +3,9 @@
         category: 'IOTA-api',
         color: '#f6bbcf',
         defaults: {
-            fromconverter: 'string',
-            toconverter: 'trytes',
-            message: 'Hello World'
+            fromconverter: {value:'string'},
+            toconverter: {value: 'trytes'},
+            message: {value:'Hello World'}
         },
         inputs:1,
         outputs:1,
@@ -29,9 +29,9 @@
         <div class="form-row">
         <label for="node-function-toconverter"><i class="icon-tag"></i> To</label>
           <select id="node-input-toconverter">
-              <option value="string">string</option>
-              <option value="trytes">trytes</option>
-              <option value="trits">trits</option>
+            <option value="string">string</option>
+            <option value="trytes">trytes</option>
+            <option value="trits">trits</option>
           </select>
         </div>
 
@@ -43,9 +43,4 @@
 
 <script type="text/x-red" data-help-name="iotaConverter">
     <p>IOTA Converter</p>
-    <b>From: </b> Select option <br><br>
-    <b>To: </b> Select option <br><br>
-    <b>Message:</b> Type your message to convert.<br><br>
-   <p>In case of success <code>msg.payload</code> is set to data.</p>
-      <p>Read more about iota.lib.js API: <a href="https://www.npmjs.com/package/iota.lib.js" target="_blank">here</a>.</p>
 </script>
