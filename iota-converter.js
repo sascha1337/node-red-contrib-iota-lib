@@ -24,7 +24,7 @@ module.exports = function(RED) {
                         console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
-                        node.packet = node.packet.split(',').map(Number);
+                        //node.packet = node.packet.split(',').map(Number);
                         node.result = trits(node.packet);
                         console.log({payload_trits:node.result});
                         break;
@@ -53,7 +53,7 @@ module.exports = function(RED) {
                     }
                   break;
                   case 'trits':
-                     node.packet = node.packet.split(',').map(Number);
+                     //node.packet = node.packet.split(',').map(Number);
                      console.log('trits: ' + node.packet);
                      switch (node.toconverter) {
                          case 'trytes':
