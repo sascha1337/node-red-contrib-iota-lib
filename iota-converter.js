@@ -39,6 +39,8 @@ module.exports = function(RED) {
                     switch (node.toconverter) {
                       case 'trytes':
                         console.log({payload_trytes:node.packet});
+                        node.result = node.packet;
+                        });
                         break;
                       case 'trits':
                         node.result = trits(node.packet);
@@ -51,17 +53,19 @@ module.exports = function(RED) {
                     }
                   break;
                   case 'trits':
-                     console.log('trits: ' + node.packet);
+                     node.toint8array = node.packet.split(',').map(Number);
+                     console.log('trits: ' + node.toint8array);
                      switch (node.toconverter) {
                          case 'trytes':
-                                 node.result = trytes(node.packet);
+                                 node.result = trytes(node.toint8array);
                                  console.log({payload_trytes:node.result});
                                  break;
                          case 'trits':
-                                 console.log({payload_trits:node.packet});
+                                 console.log({payload_trits:node.toint8array});
+                                 node.result = node.toint8array;
                                  break;
                          case 'string':
-                                 node.result = trytesToAscii(trytes(node.packet));
+                                 node.result = trytesToAscii(trytes(node.toint8array));
                                  console.log({payload_string:node.result});
                                  break;
                      }
