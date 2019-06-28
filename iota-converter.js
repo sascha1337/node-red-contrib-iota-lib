@@ -40,7 +40,6 @@ module.exports = function(RED) {
                       case 'trytes':
                         console.log({payload_trytes:node.packet});
                         node.result = node.packet;
-                        });
                         break;
                       case 'trits':
                         node.result = trits(node.packet);
