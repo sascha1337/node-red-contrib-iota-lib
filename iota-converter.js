@@ -24,11 +24,13 @@ module.exports = function(RED) {
                         console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
-                        node.result = trits(node.packet);
+                        node.toint8array = node.packet.split(',').map(Number);
+                        node.result = trits(node.toint8array);
                         console.log({payload_trits:node.result});
                         break;
                       case 'string':
-                        console.log({payload_string:node.packet});
+                        node.result = node.packet;
+                        console.log({payload_string:node.result});
                         break;
                     }
                   break;
