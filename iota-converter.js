@@ -43,7 +43,7 @@ module.exports = function(RED) {
                     switch (node.toconverter) {
                       case 'trytes':
                         node.packet = fromValue(node.packet)  //to trits
-                        node.packet = node.packet.split(',').map(Number); //to int8Array format
+                        //node.packet = node.packet.split(',').map(Number); //to int8Array format
                         node.result = trytes(node.packet);
                         console.log({payload_trytes:node.result});
                         break;
@@ -84,7 +84,9 @@ module.exports = function(RED) {
                     }
                   break;
                   case 'trits':
-                     node.packet = node.packet.split(',').map(Number);
+                     if typeof(node.packet) = "string" {
+                       node.packet = node.packet.split(',').map(Number);
+                     } ;
                      console.log('trits: ' + node.packet);
                      switch (node.toconverter) {
                          case 'trytes':
