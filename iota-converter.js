@@ -24,8 +24,8 @@ module.exports = function(RED) {
                         console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
-                        node.packet = node.packet.split(',').map(Number);
-                        node.result = trits(node.packet);
+                        //node.packet = node.packet.split(',').map(Number);
+                        node.result = trits(asciiToTrytes(node.packet));
                         console.log({payload_trits:node.result});
                         break;
                       case 'string':
