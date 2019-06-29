@@ -32,8 +32,34 @@ module.exports = function(RED) {
                         node.result = node.packet;
                         console.log({payload_string:node.result});
                         break;
+                      case 'integer':
+                        node.result = parseInt(node.packet);
+                        console.log({payload_integer:node.result});
+                        break;
                     }
                   break;
+                  case 'integer':
+                    console.log('integer: ' + node.packet);
+                    switch (node.toconverter) {
+                      case 'trytes':
+                        node.result = Trytes(fromValue(node.packet));
+                        console.log({payload_trytes:node.result});
+                        break;
+                      case 'trits':
+                        node.result = fromValue(node.packet);
+                        console.log({payload_trits:node.result});
+                        break;
+                      case 'string':
+                        node.result = node.packet.toString();
+                        console.log({payload_string:node.result});
+                        break;
+                      case 'integer':
+                        node.result = node.packet;
+                        console.log({payload_integer:node.result});
+                        break;
+                    }
+                  break;
+
                   case 'trytes':
                     console.log('trytes: ' + node.packet + " isTrytes: " + isTrytes(node.packet));
                     switch (node.toconverter) {
@@ -49,6 +75,10 @@ module.exports = function(RED) {
                         node.result = trytesToAscii((node.packet));
                         console.log({payload_string:node.result});
                         break;
+                      case 'integer':
+                        node.result = value(trits(node.packet));
+                        console.log({payload_integer:node.result});
+                        break;
                     }
                   break;
                   case 'trits':
@@ -56,7 +86,7 @@ module.exports = function(RED) {
                      console.log('trits: ' + node.packet);
                      switch (node.toconverter) {
                          case 'trytes':
-                                 node.result = trytes(node.packet);
+                                node.result = trytes(node.packet);
                                  console.log({payload_trytes:node.result});
                                  break;
                          case 'trits':
@@ -66,6 +96,10 @@ module.exports = function(RED) {
                          case 'string':
                                  node.result = trytesToAscii(trytes(node.packet));
                                  console.log({payload_string:node.result});
+                                 break;
+                         case 'integer':
+                                 node.result = value(node.packet);
+                                 console.log({payload_integer:node.result});
                                  break;
                      }
                    break;
