@@ -42,7 +42,9 @@ module.exports = function(RED) {
                     console.log('integer: ' + node.packet);
                     switch (node.toconverter) {
                       case 'trytes':
-                        node.result = Trytes(fromValue(node.packet));
+                        node.packet = fromValue(node.packet)  //to trits
+                        node.packet = node.packet.split(',').map(Number); //to int8Array format
+                        node.result = trytes(node.packet);
                         console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
