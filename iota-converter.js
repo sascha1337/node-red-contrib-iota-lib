@@ -84,7 +84,7 @@ module.exports = function(RED) {
                     }
                   break;
                   case 'trits':
-                     if typeof(node.packet) = "string" {
+                     if (typeof(node.packet) = "string") {
                        node.packet = node.packet.split(',').map(Number);
                      } ;
                      console.log('trits: ' + node.packet);
