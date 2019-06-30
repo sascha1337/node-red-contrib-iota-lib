@@ -84,11 +84,10 @@ module.exports = function(RED) {
                     }
                   break;
                   case 'trits':
-                     console.log("tipeof: " + typeof(node.packet));
+                     console.log("typeof: " + typeof(node.packet));
                      if (typeof(node.packet) == "string") {
                        node.packet = node.packet.split(',').map(Number);
                      } ;
-                     console.log('trits: ' + node.packet);
                      switch (node.toconverter) {
                          case 'trytes':
                                 node.result = trytes(node.packet);
