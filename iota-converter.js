@@ -14,6 +14,18 @@ module.exports = function(RED) {
             //const node.formconverter = config.fromconverter;
             //const toconverter = config.toconverter;
             //var packet = msg.payload;
+
+            function int8arraytoarray(buffer){
+                var length = buffer.length;
+                var result = new Array(length);
+                var addition = 1;
+                for(var i = 0;i<length;i+=addition){
+                    result[i] = buffer[i];
+                }
+                console.log("result : " + result);
+                return result;
+            }
+
             node.packet = msg.payload;
             switch (node.fromconverter) {
                   case 'string':
@@ -26,6 +38,7 @@ module.exports = function(RED) {
                       case 'trits':
                         //node.packet = node.packet.split(',').map(Number);
                         node.result = trits(asciiToTrytes(node.packet));
+                        node.result = int8arraytoarray(node.result);
                         console.log({payload_trits:node.result});
                         break;
                       case 'string':
