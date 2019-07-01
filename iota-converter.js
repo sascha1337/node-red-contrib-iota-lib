@@ -15,6 +15,8 @@ module.exports = function(RED) {
             //const toconverter = config.toconverter;
             //var packet = msg.payload;
 
+            // int8arraytoarray: funtion to return to node-red a payload type array
+            // used only for return trits value.
             function int8arraytoarray(buffer){
                 var length = buffer.length;
                 var result = new Array(length);
@@ -56,12 +58,12 @@ module.exports = function(RED) {
                     switch (node.toconverter) {
                       case 'trytes':
                         node.packet = fromValue(node.packet)  //to trits
-                        //node.packet = node.packet.split(',').map(Number); //to int8Array format
-                        node.result = trytes(node.packet);
+                        node.result = trytes(node.packet); //to trytes
                         console.log({payload_trytes:node.result});
                         break;
                       case 'trits':
-                        node.result = fromValue(node.packet);
+                        node.result = fromValue(node.packet); //to trits
+                        node.result = int8arraytoarray(node.result);
                         console.log({payload_trits:node.result});
                         break;
                       case 'string':
@@ -84,6 +86,7 @@ module.exports = function(RED) {
                         break;
                       case 'trits':
                         node.result = trits(node.packet);
+                        node.result = int8arraytoarray(node.result);
                         console.log({payload_trits:node.result});
                         break;
                       case 'string':
@@ -98,9 +101,6 @@ module.exports = function(RED) {
                   break;
                   case 'trits':
                      console.log("typeof: " + typeof(node.packet));
-                     //if (typeof(node.packet) == "object") {
-                     //   node.packet = String(node.packet.subarray(0,node.packet.length));
-                     // };
                      if (typeof(node.packet) == "string") {
                        node.packet = node.packet.split(',').map(Number);
                      } ;
