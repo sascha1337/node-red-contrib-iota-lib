@@ -86,7 +86,7 @@ module.exports = function(RED) {
                   case 'trits':
                      console.log("typeof: " + typeof(node.packet));
                      if (typeof(node.packet) == "object") {
-                       node.packet = node.packet.toString();
+                       node.packet = String(node.packet);
                      };
                      if (typeof(node.packet) == "string") {
                        node.packet = node.packet.split(',').map(Number);
