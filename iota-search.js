@@ -27,30 +27,28 @@ module.exports = function(RED) {
               this.status({fill:"red",shape:"ring",text:"connecting"});
 
               iota_value = config.iotaValue;
-              if (iota.utils.isBundle(msg.payload)) {
-                iota_value = msg.payload;
-                console.log("searching bundle... : "+iota_value);
-              } else {
-                    if (iota.valid.isAddress(msg.payload)) {
-                      iota_value = msg.payload;
-                      console.log("searching address: "+iota_value);
-                    } else {
-                          if (isTags(msg.payload)) {
-                            iota_value = msg.payload;
-                            console.log("searching tag: "+iota_value);
-                          }
-                    }
-              }
 
               var objeto;
               switch (config.iotaSelect){
                 case 'addresses':
+                        if (iota.valid.isAddress(msg.payload)) {
+                          iota_value = msg.payload;
+                          //console.log("searching address: "+iota_value);
+                        }
                         objeto = {addresses:[iota_value]};
                         break;
                 case 'bundles':
+                        if (iota.utils.isBundle(msg.payload)) {
+                          iota_value = msg.payload;
+                          //console.log("searching bundle... : "+iota_value);
+                        }
                         objeto = {bundles:[iota_value]};
                         break;
                 case 'tags':
+                        if (isTags(msg.payload)) {
+                          iota_value = msg.payload;
+                          //console.log("searching tag: "+iota_value);
+                        }
                         objeto = {tags:[iota_value]};
                         break;
                 case 'approvees':
@@ -60,7 +58,8 @@ module.exports = function(RED) {
 
                 console.log(objeto);
                 iota.api.findTransactionObjects(objeto, (error, success) => {
-                  console.log("Report from iota node:")
+                  //console.log("Report from iota node:");
+                  this.status({});
                   if (error) {
                      console.log(error);
                      msg.payload=error;
@@ -71,8 +70,6 @@ module.exports = function(RED) {
                      self.send(msg);
                   }
                 });
-                this.status({});
-
             }
         });
     }
