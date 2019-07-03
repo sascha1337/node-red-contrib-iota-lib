@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-iota-lib",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Node Red integration whith IOTA",
   "main": "iota-transactions.js",
   "scripts": {
@@ -15,7 +15,8 @@
       "iotaservernode" : "iota-servernode.js",
       "mamPublish" : "mamPublish.js",
       "mamFetch" : "mamFetch.js",
-      "iotaConverter": "iota-converter.js"
+      "iotaConverter": "iota-converter.js",
+      "iotasearch" : "iota-search.js"
     }
   },
   "author": "vruiz@wittelecom.com>",
