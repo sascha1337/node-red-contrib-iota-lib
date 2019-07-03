@@ -27,7 +27,7 @@ module.exports = function(RED) {
               this.status({fill:"red",shape:"ring",text:"connecting"});
 
               iota_value = config.iotaValue;
-              if (iota.valid.isBundle(msg.payload)) {
+              if (iota.utils.isBundle(msg.payload)) {
                 iota_value = msg.payload;
                 console.log("searching bundle... : "+iota_value);
               } else {
