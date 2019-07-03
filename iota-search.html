@@ -4,7 +4,7 @@
         color: '#f6bbcf',
         defaults: {
             iotaNode: {value: "", type:"iota-server"},
-	          iotaValue: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"},
+	          iotaValue: {value: "RHVGKQBYOJLCJQYZEVLN9HL99AAAFKPJTGAD9CFCYCBZNBBOWPQLNJMZCEE9OKYFPLZNJPBDLBQZEMWOX"},
             iotaSelect: {value: "addresses"},
             name: {value:""}
         },
@@ -24,7 +24,7 @@
     </div>
 
     <div class="form-row">
-    <label for="node-function-iotaSelect"><i class="icon-tag"></i> From</label>
+    <label for="node-function-iotaSelect"><i class="icon-tag"></i> Select Object/label>
       <select id="node-input-iotaSelect">
           <option value="addresses">addresses</option>
           <option value="bundles">bundles</option>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="form-row">
-      <label for="node-function-iotaValue"><i class="icon-tasks"></i> Find hash</label>
+      <label for="node-function-iotaValue"><i class="icon-tasks"></i> Value Object</label>
       <input type="text" id="node-input-iotaValue" placeholder="address, bundle, tag or approve">
     </div>
     <div class="form-row">
@@ -46,7 +46,7 @@
 <script type="text/x-red" data-help-name="iotasearch">
   <p>A node that work with IOTA</p>
    <b>IOTAnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual). Default value pow.iota.community:443 <br><br>
-   <b>Select:</b> Enter yout type of transtaction to search.<br><br>
+   <b>Select Object:</b> Enter yout type of transtaction to search.<br><br>
   <p>In case of success <code>msg.payload</code> is set to data.</p>
   <p>Please visit IOTA Dance to see all server prividers on this: <a href="https://iota.dance/" target="_blank">link</a>.</p>
   <p>Read more about iota.lib.js API: <a href="https://www.npmjs.com/package/iota.lib.js" target="_blank">here</a>.</p>
