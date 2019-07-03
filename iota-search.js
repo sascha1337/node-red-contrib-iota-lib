@@ -70,7 +70,8 @@ module.exports = function(RED) {
                      msg.payload=success;
                      self.send(msg);
                   }
-                  });
+                });
+                this.status({});
 
             }
         });
