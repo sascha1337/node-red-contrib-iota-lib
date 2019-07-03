@@ -29,6 +29,7 @@ module.exports = function(RED) {
             }
 
             node.packet = msg.payload;
+            this.status({fill:"red",shape:"ring",text:"connecting"});
             switch (node.fromconverter) {
                   case 'string':
                     console.log('string: ' + node.packet);
@@ -126,6 +127,7 @@ module.exports = function(RED) {
                    default:
                       console.log('Lo lamentamos, por el momento no disponemos de ' + node.fromconverter + '.');
                 }
+              this.status({});
               node.send({payload: node.result});
         });
     }
