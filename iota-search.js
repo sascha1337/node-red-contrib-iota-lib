@@ -16,12 +16,7 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             if (this.readyIota) {
-              //let txt = JSON.stringify(msg.payload);
-	            //let ascii = TRAN.transliterate(txt)
-              //console.log("message payload: "+msg.payload)
-	            //console.log("transliterated: "+ascii)
-              console.log("Searching dataset via findTransactionObjects - please wait")
-
+              console.log("Searching dataset via findTransactionObjects.")
               this.readyIota = false;
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});

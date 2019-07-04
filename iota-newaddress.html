@@ -5,6 +5,7 @@
         defaults: {
             iotaNode: {value: "", type:"iota-server"},
 	          iotaSeed: {value: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD"},
+            iotaSecurity: {value: 2},
             name: {value:""}
         },
         inputs:1,
@@ -24,6 +25,15 @@
     <div class="form-row">
       <label for="node-function-iotaSeed"><i class="icon-tasks"></i> Use seed</label>
       <input type="text" id="node-input-iotaSeed" placeholder="seed">
+    </div>
+
+    <div class="form-row">
+      <label for="node-function-iotaSecurity"><i class="icon-tag"></i> Security Level</label>
+      <select id="node-input-iotaSecurity">
+          <option value=1>low(1)</option>
+          <option value=2>medium(2)</option>
+          <option value=3>high(3)</option>
+      </select>
     </div>
     <div class="form-row">
       <label for="node-function-name"><i class="icon-tag"></i> Name</label>

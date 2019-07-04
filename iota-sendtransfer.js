@@ -8,19 +8,17 @@ module.exports = function(RED) {
         node._sec = 2;
 	node._firstroot = '';
   this.iotaNode = RED.nodes.getNode(config.iotaNode);
-	//console.log("Configuring sendransfer on iota node: " + this.iotaNode);
-  //console.log("Configuring sendransfer on iota node: " + this.iotaNode.host + ":" + this.iotaNode.port);
-  //const iota = new IOTA({ provider: this.iotaNode });
   const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         node.readyIota = true;
 
         node.on('input', function(msg) {
             if (this.readyIota) {
+              console.log("Uploading dataset via sendTransfer.")
               let txt = JSON.stringify(msg.payload);
 	            let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
 
-              let txttag = JSON.stringify(config.iotaTag);
+              //let txttag = JSON.stringify(config.iotaTag);
               let asciitag = TRAN.transliterate(txttag);
               let trytestag = iota.utils.toTrytes(asciitag);
 
@@ -28,23 +26,22 @@ module.exports = function(RED) {
 	            console.log("transliterated: "+ascii)
               console.log("trytes: "+trytes)
 
-              console.log("Uploading dataset via sendTransfer - please wait")
-	      const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-	      const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-        //const iota_value = config.iotaValue;
-        let iota_value = iota.utils.convertUnits(config.iotaValue, "Ki", "i");
-        console.log("sending founds: "+iota_value + " i" + " in TAG: " +asciitag);
-	      const transfers = [{
-    			'value': iota_value,
-    			'address': iota_addr,
-    			'message': trytes,
-          'tag': trytestag
-  		  }]
+	            const iota_addr = config.iotaAddr; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+	            const iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+
+              let iota_value = iota.utils.convertUnits(config.iotaValue, "Ki", "i");
+              console.log("sending founds: "+iota_value + " i" + " in TAG: " +trytestag);
+	            const transfers = [{
+    			         'value': iota_value,
+    			         'address': iota_addr,
+    			         'message': trytes,
+                   'tag': trytestag
+  		             }]
               this.readyIota = false;
               this.status({fill:"red",shape:"ring",text:"connecting"});
               var self = this;
               iota.api.sendTransfer(iota_seed, 4, 14, transfers, (error, success) => {
-                console.log("Report from iota node:")
+                //console.log("Report from iota node:")
   		if (error) {
     	 	  console.log(error);
                   msg.payload=error ;

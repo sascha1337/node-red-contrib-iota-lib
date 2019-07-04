@@ -6,15 +6,15 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.iotaNode = RED.nodes.getNode(config.iotaNode);
-        console.log("MAM Fetch INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
+        //console.log("MAM Fetch INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         node.on('input', function(msg) {
           config.root = msg.payload;
 
-          console.log("MAM fetch on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
+          //console.log("MAM fetch on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
           console.log("MAM root: " + config.root);
           console.log("MAM mode: " + config.mode);
           //console.log("MAM secret: " + config.secret);
-          console.log("Fetching data ... ");
+          //console.log("Fetching data ... ");
 
           let mamState = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
           let root = config.root.slice(0,81);

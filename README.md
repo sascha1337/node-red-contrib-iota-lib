@@ -15,4 +15,14 @@ npm install node-red-contrib-iota-lib
 
 Usage
 
-There are four functions node available to do IOTA transactions.
+There are functions node available to do IOTA transactions and MAM Transactions.
+
+iotasearch : to find addresses, tags or bundles in The tangle
+iotatransactions: to find hashes in The tangle
+iotanewaddress: generate new address from your seed
+iotasendtransfer: send iota tokens from your seed to an address
+iotagetinputs: to know your balance iota tokens
+iotaConverter: to manager trytes and trits conversions
+
+mamPublish: attach a message in the tangle
+mamFetch: sears a mmesage from the tangle

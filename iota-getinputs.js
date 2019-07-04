@@ -10,20 +10,13 @@ module.exports = function(RED) {
         node._sec = 2;
 	      node._firstroot = '';
         this.iotaNode = RED.nodes.getNode(config.iotaNode);
-	      console.log("Iota Api getinputs: " + this.iotaNode.host + ":" + this.iotaNode.port);
-	      //const iota = new IOTA({ provider: this.iotaNode });
+	      //console.log("Iota Api getinputs: " + this.iotaNode.host + ":" + this.iotaNode.port);
         const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         node.readyIota = true;
 
         node.on('input', function(msg) {
             if (this.readyIota) {
-              let txt = JSON.stringify(msg.payload);
-	            let ascii = TRAN.transliterate(txt)
-
-              console.log("message payload: "+msg.payload)
-	            console.log("transliterated: "+ascii)
-
-              console.log("Get account dataset via getInputs - please wait")
+              console.log("Get account dataset via getInputs.");
               if (iota.valid.isTrytes(msg.payload,81)) {
                 iota_seed = msg.payload;
               } else {
@@ -33,7 +26,7 @@ module.exports = function(RED) {
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});
               iota.api.getInputs(iota_seed, (error, success) => {
-                console.log("Report from iota node:")
+                //console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
                      msg.payload=error;

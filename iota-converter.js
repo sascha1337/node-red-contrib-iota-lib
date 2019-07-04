@@ -11,9 +11,6 @@ module.exports = function(RED) {
         node.result = "";
 
         node.on('input', function(msg) {
-            //const node.formconverter = config.fromconverter;
-            //const toconverter = config.toconverter;
-            //var packet = msg.payload;
 
             // int8arraytoarray: funtion to return to node-red a payload type array
             // used only for return trits value.
@@ -125,7 +122,7 @@ module.exports = function(RED) {
                      }
                    break;
                    default:
-                      console.log('Lo lamentamos, por el momento no disponemos de ' + node.fromconverter + '.');
+                      console.log('Select option not found:' + node.fromconverter + '.');
                 }
               this.status({});
               node.send({payload: node.result});

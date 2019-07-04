@@ -9,35 +9,24 @@ module.exports = function(RED) {
 	      node._firstroot = '';
         var iota_hash = '';
         this.iotaNode = RED.nodes.getNode(config.iotaNode);
-      	//console.log("Iota Api getTransactions: " + this.iotaNode);
-	      //const iota = new IOTA({ provider: this.iotaNode });
         const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         node.readyIota = true;
 
         node.on('input', function(msg) {
             if (this.readyIota) {
-              let txt = JSON.stringify(msg.payload);
-	            let ascii = TRAN.transliterate(txt)
-
-              console.log("message payload: "+msg.payload)
-	            console.log("transliterated: "+ascii)
-
-              console.log("Searching dataset via getTransactionsObjects - please wait")
-
+              console.log("Searching dataset via getTransactionsObjects.")
               this.readyIota = false;
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});
 
               if (iota.valid.isHash(msg.payload)) {
                 iota_hash = msg.payload;
-                console.log("searching hash... : "+iota_hash);
               } else {
                 iota_hash = config.iotaHash;
-                console.log("searching hash: "+iota_hash);
               }
-
+              console.log("Input HASH: "+iota_hash);
               iota.api.getTransactionsObjects([iota_hash], (error, success) => {
-                console.log("Report from iota node:")
+                //console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
                      msg.payload=error;
@@ -60,7 +49,6 @@ module.exports = function(RED) {
                 this.status({});
                 self.readyIota = true;
 	             });
-               //this.status({});
             }
         });
     }
