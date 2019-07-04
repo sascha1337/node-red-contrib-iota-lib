@@ -2,7 +2,7 @@
     RED.nodes.registerType('iota-server',{
         category: 'config',
         defaults: {
-            host: {value:"https://pool.iota.dance",required:true},
+            host: {value:"https://nodes.thetangle.org",required:true},
             port: {value:443,required:false,validate:RED.validators.number()},
         },
         label: function() {
