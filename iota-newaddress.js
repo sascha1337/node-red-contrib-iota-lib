@@ -26,7 +26,7 @@ module.exports = function(RED) {
               this.readyIota = false;
               var self = this;
               this.status({fill:"red",shape:"ring",text:"connecting"});
-              iota.api.getNewAddress(iota_seed, {index: 0 , total: 1, security: iota_Security, checksum: true}, (error, success) => {
+              iota.api.getNewAddress(iota_seed, {index: 0 , total: 1, security: parseInt(iota_Security), checksum: true}, (error, success) => {
                 //console.log("Report from iota node:")
   		            if (error) {
     	 	             console.log(error);
