@@ -17,6 +17,7 @@ module.exports = function(RED) {
             if (this.readyIota) {
               console.log("Get new address...")
               iota_Security = config.iotaSecurity;
+              console.log(iota_Security);
               if (iota.valid.isTrytes(msg.payload,81)) {
                 iota_seed = msg.payload;
               } else {
