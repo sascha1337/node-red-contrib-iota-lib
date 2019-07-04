@@ -17,8 +17,8 @@ module.exports = function(RED) {
             if (this.readyIota) {
               console.log("Get new address...")
               iota_Security = config.iotaSecurity;
-              console.log(iota_Security);
-              if (iota.valid.isTrytes(msg.payload,81)) {
+              //console.log(iota_Security);
+              if (iota.valid.isAddress(msg.payload)) {
                 iota_seed = msg.payload;
               } else {
 	              iota_seed = config.iotaSeed; //'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
@@ -34,7 +34,8 @@ module.exports = function(RED) {
                      self.send(msg);
   		               } else {
     		                 console.log(success);
-                         msg.payload=success;
+                         msg.output=success;
+                         msg.payload=success[0];
                          self.send(msg);
   		                   }
                 this.status({});
