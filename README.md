@@ -26,3 +26,5 @@ iotaConverter: to manager trytes and trits conversions;
 
 mamPublish: attach a message in the tangle;
 mamFetch: sears a mmesage from the tangle;
+
+You can try a test flow from https://flows.nodered.org/flow/a9cc5f065684b3365a7a7a6087d96bfe
