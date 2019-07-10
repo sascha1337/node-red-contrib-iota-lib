@@ -1,5 +1,5 @@
 const IOTA = require('iota.lib.js');
-const { isTags } = require('@iota/validators');
+const { isTag } = require('@iota/validators');
 const TRAN = require('transliteration');
 
 module.exports = function(RED) {
@@ -40,7 +40,7 @@ module.exports = function(RED) {
                         objeto = {bundles:[iota_value]};
                         break;
                 case 'tags':
-                        if (isTags(msg.payload)) {
+                        if (isTag(msg.payload)) {
                           iota_value = msg.payload;
                           //console.log("searching tag: "+iota_value);
                         }
