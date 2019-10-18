@@ -35,7 +35,7 @@ module.exports = function(RED) {
               this.readyMAM = false;
               this.arrayPackets = [];
               resp.then(function(result) {
-                 console.log(result); //will log results.
+                 //console.log(result); //will log results.
                  console.log('Verify with MAM Explorer: '  + node.mamLink + message.address);
                  let link = node.mamLink + message.address;
                  this.readyMAM = true;
