@@ -1,5 +1,6 @@
 const MAM = require('@iota/mam');
 const IOTA_CONVERTER = require('@iota/converter')
+const { isAddress } = require('@iota/validators');
 
 module.exports = function(RED) {
     function mamFetch(config) {
@@ -8,7 +9,11 @@ module.exports = function(RED) {
         node.iotaNode = RED.nodes.getNode(config.iotaNode);
         //console.log("MAM Fetch INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         node.on('input', function(msg) {
-          config.root = msg.payload;
+          if (iota.valid.isAddress(msg.payload)) {
+            config.root = msg.payload;
+          }
+          //console.log("searching address: "+config.root);
+
 
           //console.log("MAM fetch on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
           console.log("MAM root: " + config.root);
