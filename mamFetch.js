@@ -9,7 +9,7 @@ module.exports = function(RED) {
         node.iotaNode = RED.nodes.getNode(config.iotaNode);
         //console.log("MAM Fetch INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         node.on('input', function(msg) {
-          if (iota.valid.isAddress(msg.payload)) {
+          if (isAddress(msg.payload)) {
             config.root = msg.payload;
           }
           //console.log("searching address: "+config.root);
