@@ -25,7 +25,7 @@
     </div>
     <div class="form-row">
         <label for="node-function-root"><i class="icon-tag"></i> Use root</label>
-        <input type="text" id="node-input-root" placeholder="MAM root 81 trytes. Empty to generate new root">
+        <input type="text" id="node-input-root" placeholder="MAM root 81 trytes. Empty to use inject msg.payload">
     </div>
     <div class="form-row">
         <label for="node-function-mode"><i class="icon-tag"></i> Channel mode</label>
@@ -48,6 +48,7 @@
 <script type="text/x-red" data-help-name="mamFetch">
     <p>MAM fetch node</p>
     <b>MAMnode: </b> Setup IOTA server provider settings like host, port (14265 or 443 - are usual). Default value pow.iota.community:443 <br><br>
+    <b>Root: </b> String Address 81 trytes or empty to inject msg.payload like Address format.<br><br>
     <b>Channelmode: </b> String Intended channel mode. Can be only: public, private or restricted.<br><br>
     <b>SidKey:</b> String Tryte-encoded encryption key, any length. Required for restricted mode.<br><br>
     <b>Limit:</b> Number Optional limits the number of items returned, empty value defaults to all.<br><br>
