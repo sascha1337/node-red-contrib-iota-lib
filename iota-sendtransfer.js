@@ -18,7 +18,7 @@ module.exports = function(RED) {
 	            let ascii = TRAN.transliterate(txt);
               let trytes = iota.utils.toTrytes(ascii);
 
-              //let txttag = JSON.stringify(config.iotaTag);
+              let txttag = JSON.stringify(config.iotaTag);
               let asciitag = TRAN.transliterate(txttag);
               let trytestag = iota.utils.toTrytes(asciitag);
 
