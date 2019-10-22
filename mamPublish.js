@@ -12,13 +12,15 @@ module.exports = function(RED) {
         if (config.channelseed != null && config.channelseed != "") {
           if (isTrytes(config.channelseed,81)) {
             //console.log("Right User Channel Seed");
+            node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
           }  else {
               config.channelseed = null;
               //console.log("Wrong user Channel Seed, generated random seed");
+              node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port });
             }
         }
 
-        node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
+        //node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
         node.tag = config.tag;
         node.readyMAM = true;
