@@ -16,7 +16,7 @@ module.exports = function(RED) {
           }  else {
               config.channelseed = null;
               //console.log("Wrong user Channel Seed, generated random seed");
-              node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },,);
+              node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },,2);
             }
         }
 
