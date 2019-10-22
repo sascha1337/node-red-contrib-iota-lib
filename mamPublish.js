@@ -12,7 +12,7 @@ module.exports = function(RED) {
         if (isTrytes(config.channelseed,81)) {
           console.log("Right User Channel Seed");
         }  else {
-            config.channelseed = Null;
+            config.channelseed = null;
             console.log("Wrong user Channel Seed, generated random seed");
           }
 
