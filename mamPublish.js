@@ -41,17 +41,18 @@ module.exports = function(RED) {
               console.log("Uploading dataset via MAM Attach.");
               console.log(message.address);
               this.status({fill:"red",shape:"ring",text:"publishing"});
-              let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
               this.readyMAM = false;
-              this.arrayPackets = [];
+              let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
+
               resp.then(function(result) {
                  //console.log(result); //will log results.
                  console.log('Verify with MAM Explorer: '  + node.mamLink + message.address);
                  let link = node.mamLink + message.address;
-                 this.readyMAM = true;
                  node.send({payload: {address:message.address, root:message.root, state:message.state, link:link}});
               });
-              this.status({});;
+              this.status({});
+              this.readyMAM = true;
+              this.arrayPackets = [];
             } else {
 
             }
