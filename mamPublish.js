@@ -11,11 +11,11 @@ module.exports = function(RED) {
         //console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         if (isTrytes(config.channelseed,81)) {
           console.log("Right User Channel Seed");
-          else {
+        }  else {
             config.channelseed = Null;
             console.log("Wrong user Channel Seed, generated random seed");
           }
-        }
+
         node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
         node.tag = config.tag;
