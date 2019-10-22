@@ -11,10 +11,10 @@ module.exports = function(RED) {
         //console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
         if (config.channelseed != null) {
           if (isTrytes(config.channelseed,81)) {
-            console.log("Right User Channel Seed");
+            //console.log("Right User Channel Seed");
           }  else {
               config.channelseed = null;
-              console.log("Wrong user Channel Seed, generated random seed");
+              //console.log("Wrong user Channel Seed, generated random seed");
             }
         }
 
@@ -31,7 +31,7 @@ module.exports = function(RED) {
             this.arrayPackets.push(packet);
             //console.log(this.arrayPackets.length);
             //console.log(JSON.stringify(this.arrayPackets));
-
+            console.log(this.readyMAM);
             if (this.readyMAM) {
               let trytes = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(this.arrayPackets));
               let message = MAM.create(this._state, trytes);
