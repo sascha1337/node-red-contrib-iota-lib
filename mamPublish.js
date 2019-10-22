@@ -9,7 +9,7 @@ module.exports = function(RED) {
         node.iotaNode = RED.nodes.getNode(config.iotaNode);
       	//const iota = new IOTA({'host': this.iotaNode.host, 'port': this.iotaNode.port});
         //console.log("MAM publish INIT on iota node: " + node.iotaNode.host + ":" + node.iotaNode.port);
-        if (isTrytes(config.channelseed,81) {
+        if (isTrytes(config.channelseed,81)) {
           console.log("Right User Channel Seed");
           else {
             config.channelseed = Null;
