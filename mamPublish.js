@@ -19,7 +19,9 @@ module.exports = function(RED) {
         }
 
         node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
+        console.log('GetRootInit: ' + MAM.getRoot(node._state));
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
+        console.log('GetRootMode: ' + MAM.getRoot(node._state));
         node.tag = config.tag;
         node.readyMAM = true;
         node.arrayPackets = [];
@@ -38,7 +40,7 @@ module.exports = function(RED) {
               let message = MAM.create(this._state, trytes);
               // Update the mam state so we can keep adding messages.
               this._state = message.state;
-
+              console.log('GetRootCreate: ' + MAM.getRoot(message.state));
               //console.log("Uploading dataset via MAM Attach.");
               console.log(node.tangleLink + message.address);
               this.status({fill:"red",shape:"ring",text:"publishing"});
