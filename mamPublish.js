@@ -24,6 +24,7 @@ module.exports = function(RED) {
         node.readyMAM = true;
         node.arrayPackets = [];
         node.mamLink = 'https://mam-explorer.firebaseapp.com/?provider=' + node.iotaNode.host + ':' + node.iotaNode.port + '&mode=' + config.mode + '&root=';
+        node.tangleLink = 'https://thetangle.org/address/'
 
         node.on('input', function(msg) {
             let trytestag = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(node.tag));
@@ -38,16 +39,16 @@ module.exports = function(RED) {
               // Update the mam state so we can keep adding messages.
               this._state = message.state;
 
-              console.log("Uploading dataset via MAM Attach.");
-              console.log(message.address);
+              //console.log("Uploading dataset via MAM Attach.");
+              console.log(node.tangleLink + message.address);
               this.status({fill:"red",shape:"ring",text:"publishing"});
               this.readyMAM = false;
               let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
 
               resp.then(function(result) {
                  //console.log(result); //will log results.
-                 console.log('Verify with MAM Explorer: '  + node.mamLink + message.address);
-                 let link = node.mamLink + message.address;
+                 console.log('Verify with MAM Explorer: '  + node.mamLink + message.root);
+                 let link = node.mamLink + message.root;
                  node.send({payload: {address:message.address, root:message.root, state:message.state, link:link}});
               });
               this.status({});
