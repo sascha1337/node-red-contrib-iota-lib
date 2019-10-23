@@ -19,9 +19,9 @@ module.exports = function(RED) {
         }
 
         node._state = MAM.init({ provider: node.iotaNode.host, 'port': node.iotaNode.port },config.channelseed,2);
-        console.log('GetRootInit: ' + MAM.getRoot(node._state));
+        //console.log('GetRootInit: ' + MAM.getRoot(node._state));
         node._state = MAM.changeMode(node._state, config.mode, config.sidkey);
-        console.log('GetRootMode: ' + MAM.getRoot(node._state));
+        //console.log('GetRootMode: ' + MAM.getRoot(node._state));
         node.tag = config.tag;
         node.readyMAM = true;
         node.arrayPackets = [];
@@ -34,26 +34,25 @@ module.exports = function(RED) {
             this.arrayPackets.push(packet);
             //console.log(this.arrayPackets.length);
             //console.log(JSON.stringify(this.arrayPackets));
-            console.log(this.readyMAM);
+            //console.log(this.readyMAM);
             if (this.readyMAM) {
               let trytes = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(this.arrayPackets));
               let message = MAM.create(this._state, trytes);
               // Update the mam state so we can keep adding messages.
               this._state = message.state;
-              console.log('GetRootCreate: ' + MAM.getRoot(message.state));
               //console.log("Uploading dataset via MAM Attach.");
-              console.log(node.tangleLink + message.address);
-              this.status({fill:"red",shape:"ring",text:"publishing"});
+              let link2 = node.tangleLink + message.address;
+              node.status({fill:"red",shape:"ring",text:"publishing"});
               this.readyMAM = false;
               let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
 
               resp.then(function(result) {
                  //console.log(result); //will log results.
-                 console.log('Verify with MAM Explorer: '  + node.mamLink + message.root);
+                 //console.log('Verify with MAM Explorer: '  + node.mamLink + message.root);
                  let link = node.mamLink + message.root;
-                 node.send({payload: {address:message.address, root:message.root, state:message.state, link:link}});
+                 node.send({payload: {address:message.address, root:message.root, state:message.state, link:link, tangleLink:link2}});
               });
-              this.status({});
+              node.status({});
               this.readyMAM = true;
               this.arrayPackets = [];
             } else {
