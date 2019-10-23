@@ -36,23 +36,22 @@ module.exports = function(RED) {
             //console.log(JSON.stringify(this.arrayPackets));
             //console.log(this.readyMAM);
             if (this.readyMAM) {
+              this.status({fill:"red",shape:"ring",text:"publishing"});
+              this.readyMAM = false;
               let trytes = IOTA_CONVERTER.asciiToTrytes(JSON.stringify(this.arrayPackets));
               let message = MAM.create(this._state, trytes);
               // Update the mam state so we can keep adding messages.
               this._state = message.state;
               //console.log("Uploading dataset via MAM Attach.");
-              let link2 = node.tangleLink + message.address;
-              node.status({fill:"red",shape:"ring",text:"publishing"});
-              this.readyMAM = false;
+              let link2 = node.tangleLink + message.address;              
               let resp = MAM.attach(message.payload, message.address,4,14,trytestag);
-
               resp.then(function(result) {
                  //console.log(result); //will log results.
                  //console.log('Verify with MAM Explorer: '  + node.mamLink + message.root);
                  let link = node.mamLink + message.root;
                  node.send({payload: {address:message.address, root:message.root, state:message.state, link:link, tangleLink:link2}});
               });
-              node.status({});
+              this.status({});
               this.readyMAM = true;
               this.arrayPackets = [];
             } else {
