@@ -64,6 +64,7 @@ module.exports = function(RED) {
                      msg.payload=success;
                      self.send(msg);
                   }
+		  self.readyIota = true;
                 });
             }
         });
