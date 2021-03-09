@@ -1,45 +1,30 @@
-# Node-Red IOTA library module ( in progress )
+Node-Red IOTA library module ( in progress )
 
-## Requirements
+Requirements
 
 Install node-red globally and install ui packages
 
-```
 sudo npm install -g --unsafe-perm node-red
-```
 
-in your ~/.node-red installation directory type:
-```
-npm install node-red-dashboard
-```
 
-# IOTA-lib module installation
+
+IOTA-lib module installation, in your ~/.node-red installation directory type:
 
 Run the following command in your NODE-RED install
-```
-npm install node-red-contrib-iota-lib // not yet published to npm
-```
+npm install node-red-contrib-iota-lib
 
-# Usage
+Usage
 
-There is one function node available
+There are functions node available to do IOTA transactions and MAM Transactions.
 
-**tx0 publish** (=upload data to tangle)
+iotasearch : to find addresses, tags or bundles in The tangle;
+iotatransactions: to find hashes in The tangle;
+iotanewaddress: generate new address from your seed;
+iotasendtransfer: send iota tokens from your seed to an address;
+iotagetinputs: to know your balance iota tokens;
+iotaConverter: to manager trytes and trits conversions;
 
-Drag tx0 function node into a flow and wire it accordingly
+mamPublish: attach a message in the tangle;
+mamFetch: sears a mmesage from the tangle;
 
-
-## tx0 publish
-
-Deploy some node input data source.
-
-wire its output to
--> tx0Publish node
-
-and wire this node's output to an
--> (optional) output for logging
-
-The tx0 publish gets input data from sensorTag, uploads this data and upon
-tx confirmation is ready to take new data from the input.
-
-
+You can try a test flow from https://flows.nodered.org/flow/a9cc5f065684b3365a7a7a6087d96bfe

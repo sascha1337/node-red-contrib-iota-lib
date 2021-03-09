@@ -1,30 +1,42 @@
 {
-  "name": "node-red-contrib-iota-tx0",
-  "version": "1.0.1",
-  "description": "",
-  "main": "tx0Publish.js",
+  "name": "node-red-contrib-iota-lib",
+  "version": "0.2.6",
+  "description": "Node Red integration whith IOTA",
+  "main": "iota-transactions.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "node-red": {
     "nodes": {
-      "tx0Publish": "tx0Publish.js"
+      "iotatransactions": "iota-transactions.js",
+      "iotasendtransfer": "iota-sendtransfer.js",
+      "iotagetinputs": "iota-getinputs.js",
+      "iotanewaddress": "iota-newaddress.js",
+      "iotaservernode" : "iota-servernode.js",
+      "mamPublish" : "mamPublish.js",
+      "mamFetch" : "mamFetch.js",
+      "iotaConverter": "iota-converter.js",
+      "iotasearch" : "iota-search.js"
     }
   },
-  "author": "yshurik <yshurik@gmail.com>",
+  "author": "vruiz@wittelecom.com>",
   "license": "MIT",
   "dependencies": {
-    "iota.lib.js": "^0.4.7",
-    "transliteration": "^1.6.2"
+    "iota.lib.js": "^0.5.2",
+    "transliteration": "^2.1.7",
+    "@iota/converter": "*",
+    "@iota/validators": "*",
+    "@iota/mam": "*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yshurik/node-red-contrib-iota-tx0.git"
+    "url": "https://github.com/Vruizvil/node-red-contrib-iota-lib.git"
   },
   "keywords": [
     "node-red",
     "iota",
-    "sensortag",
-    "sensornode"
+    "thetangle",
+    "tangle",
+    "mam"
   ]
 }
